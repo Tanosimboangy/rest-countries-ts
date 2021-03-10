@@ -7,7 +7,10 @@ import styled from 'styled-components';
 import { Route, Switch } from 'react-router';
 
 const Container = styled.div`
-  padding: 16px
+  padding: 16px;
+  @media(min-width: 720px) {
+    padding: 0; 
+  }
 `;
 
 function App() {
@@ -19,7 +22,7 @@ function App() {
           <Route exact path="/">
             <Home />
           </Route>
-          <Route path="/details">
+          <Route path={`/:selectedCountry`}>
             <Details />
           </Route>
         </Switch>
