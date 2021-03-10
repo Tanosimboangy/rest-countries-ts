@@ -5,17 +5,20 @@ import styled from "styled-components";
 import {Link} from "react-router-dom";
 
 const DetailsContainer = styled.div`
-    max-width: 300px;
-    margin: auto;
+    display: block;
     @media(min-width: 720px) {
         max-width: 90%;
         margin: auto;
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
     }
 `;
 const Wrapper = styled.div`
+    max-width: 320px;
+    margin: auto;
     @media(min-width: 720px) {
+        max-width: 100%;
+        margin: auto;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
     }
 `;
 const Flag = styled.img`
@@ -26,6 +29,54 @@ const Flag = styled.img`
         height: auto;
     }
 `;
+const GoBack = styled.div`  
+    display: inline-block;
+    background-color: white;
+    box-shadow: 0px 0px 4px gray;
+    margin-bottom: 40px;
+    border-radius: 4px;
+    a {
+        display: block;
+        padding: 6px 16px;
+        color: hsl(209, 23%, 22%);
+        font-size: 16px;
+        font-weight: 600;
+        font-family: Arial, Helvetica, sans-serif;
+        span {
+            font-weight: bolder;
+            font-size: 20px;
+        }
+    }
+`;
+const Base = styled.div`
+    padding-top: 20px;
+    div {
+        span {
+            font-size: 16px;
+            font-weight: 600;
+            font-style: normal;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    }
+    div, p {
+        white-space: nowrap;
+    }
+     @media(min-width: 720px) {}
+`;
+const Name = styled.h3`  
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    padding-bottom: 20px;
+`;
+const SubContainer = styled.div`  
+    @media(min-width: 720px) {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+`;
+
 
 function Details() {
     const {countriesData} = useContext(GlobalContext);
@@ -35,17 +86,17 @@ function Details() {
     
     return (
         <DetailsContainer>
-            <Link to="/">Go Back</Link>
+            <GoBack>
+                <Link to="/"><span>←</span> Back</Link>
+            </GoBack>
             {
                 country.map((item: any)=> {
-                    console.log(item.borders);
-                    
                     return (
                         <Wrapper key={item.name}>
                             <Flag src={item.flag} alt="flag"/>
-                            <div>
-                                <h3>{item.name}</h3>
-                                <div>
+                            <Base>
+                                <Name>{item.name}</Name>
+                                <SubContainer>
                                     <div>
                                         <p><span>Native Name: </span>{item.nativeName}</p>
                                         <p><span>Population: </span>{item.population}</p>
@@ -64,14 +115,14 @@ function Details() {
                                             )}
                                         </div>
                                     </div>
-                                </div>
+                                </SubContainer>
                                 <div>
                                     <span>Border Countries: </span>
                                     {item.borders.map((border: any) => 
                                         <Link to={`/${border}`} key={border[0]}>{border}</Link>
                                     )}
                                 </div>
-                            </div>
+                            </Base>
                         </Wrapper>
                     )
                 })

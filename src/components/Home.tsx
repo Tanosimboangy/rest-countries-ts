@@ -54,25 +54,34 @@ const Container = styled.div`
         flex-wrap: wrap;
     }
 `;
+const Loading = styled.h1`
+    color: blue;
+    font-size: 45px;
+    line-height: 55px;
+    font-weight: 700;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: normal;
+`;
 const Wrapper = styled.div`
     max-width: 329px;
     margin: 0;
-    margin-bottom: 30px;
     display: flex;
     flex-direction: row;
     align-items: flex-start;
     justify-content: space-between;
     flex-wrap: wrap;
     margin-right: 10px;
+    margin-bottom: 40px;
     @media(min-width: 720px) {
-        max-width: 250px;
+        max-width: 280px;
         margin: 0;
         margin-bottom: 30px;
     }
 `;
 const Flag = styled.img`
     width: 100%;
-    height: auto;
+    height: 150px;
+    object-fit: cover;
     border-top-left-radius: 6px;
     border-top-right-radius: 6px;
 `;
@@ -83,6 +92,11 @@ const Card = styled.div`
     background-color: hsl(0, 0%, 100%);
     border-bottom-left-radius: 6px;
     border-bottom-right-radius: 6px;
+    padding-bottom: 20px;
+    span {
+        font-weight: bolder;
+        color: black;
+    }
 `;
 const CountryName = styled.h2`
     font-family: Arial, Helvetica, sans-serif;
@@ -90,14 +104,30 @@ const CountryName = styled.h2`
     font-weight: bolder;
     font-size: 16px;
     color: hsl(209, 23%, 22%);
+    margin-bottom: 20px;
 `;
 const Population = styled.p`
     font-family: Arial, Helvetica, sans-serif;
     font-style: normal;
-    font-weight: 500;
-    font-size: 12px;
+    font-weight: 400;
+    font-size: 14px;
     color: hsl(209, 23%, 22%);
-    padding-top: 4px;
+    margin-bottom: 4px;
+`;
+const Region = styled.p`
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    color: hsl(209, 23%, 22%);
+    margin-bottom: 4px;
+`;
+const Capital = styled.p`
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    color: hsl(209, 23%, 22%);
 `;
 
 function Home() {
@@ -119,7 +149,8 @@ function Home() {
                 </select>
             </SearchInput>
             <Container>
-                {countriesData.map((country: any) => {
+                {countriesData.length === 0? <Loading>Loading ...</Loading> :
+                countriesData.map((country: any) => {
                     const selectedCountry = country.name;
                     return (
                         <Link to={`/${selectedCountry}`}  key={country.name}>
@@ -128,8 +159,8 @@ function Home() {
                                 <Card>
                                     <CountryName>{country.name}</CountryName>
                                     <Population><span>Population: </span>{country.population}</Population>
-                                    <p><span>Region: </span>{country.region}</p>
-                                    <p><span>Capital: </span> {country.capital}</p>
+                                    <Region><span>Region: </span>{country.region}</Region>
+                                    <Capital><span>Capital: </span> {country.capital}</Capital>
                                 </Card>
                             </Wrapper>
                         </Link>)

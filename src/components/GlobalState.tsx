@@ -8,7 +8,7 @@ export const initialValue: State = {
 
 type State = {
     countriesData: CountriesData[],
-    searchCountry: (parapm: any) => void,
+    searchCountry: (e: React.ChangeEvent<HTMLInputElement>) => void,
 }
 
 type CountriesData = {
@@ -40,7 +40,7 @@ type CountriesData = {
 
 type Action = 
 |   {type: "FETCHING_COUNTRIES", payload: CountriesData[]}
-|   {type: "FETCHING_SELETED_COUNTRIES", value: CountriesData[]}
+|   {type: "FETCHING_SELETED_COUNTRIES", value: any}
 
 const GlobalContext = createContext(initialValue);
 export default GlobalContext;
@@ -72,7 +72,7 @@ export const GlobalProvider: React.FC = ({children}) => {
         <GlobalContext.Provider 
             value={{
                 countriesData: state.countriesData,
-                searchCountry: (parapm) => dispatch({type: "FETCHING_SELETED_COUNTRIES", value: parapm})
+                searchCountry: (e) => dispatch({type: "FETCHING_SELETED_COUNTRIES", value: e.target.value})
                 }}>
             {children}
         </GlobalContext.Provider>
