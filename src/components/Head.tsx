@@ -9,7 +9,7 @@ const Header = styled.header`
     flex-wrap: wrap;
     margin-bottom: 25px;
     @media(min-width: 720px) {
-        max-width: 90%;
+        max-width: 85%;
         margin: auto;
         margin-bottom: 25px;
         padding-top: 20px; 

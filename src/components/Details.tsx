@@ -7,7 +7,7 @@ import {Link} from "react-router-dom";
 const DetailsContainer = styled.div`
     display: block;
     @media(min-width: 720px) {
-        max-width: 90%;
+        max-width: 85%;
         margin: auto;
     }
 `;
@@ -19,15 +19,20 @@ const Wrapper = styled.div`
         margin: auto;
         display: grid;
         grid-template-columns: repeat(2, 1fr);
+        gap: 10%;
     }
 `;
-const Flag = styled.img`
-    width: 100%;
-    height: auto;
-    @media(min-width: 720px) {
-        width: 80%;
-        height: auto;
+const Flag = styled.div`
+    max-width: 500px;
+    margin: auto;
+    @media(max-width: 720px) {
+        max-width: 600pxpx;
+        margin: auto;
     }
+`;
+const Image = styled.img`
+    width: 100%;
+    @media(min-width: 720px) {}
 `;
 const GoBack = styled.div`  
     display: inline-block;
@@ -82,7 +87,6 @@ function Details() {
     const {countriesData} = useContext(GlobalContext);
     const {selectedCountry} = useParams();
     const country = countriesData.filter(item => item.name === selectedCountry)
-    console.log(country);
     
     return (
         <DetailsContainer>
@@ -93,7 +97,9 @@ function Details() {
                 country.map((item: any)=> {
                     return (
                         <Wrapper key={item.name}>
-                            <Flag src={item.flag} alt="flag"/>
+                            <Flag>
+                                <Image src={item.flag} alt="flag"/>
+                            </Flag>
                             <Base>
                                 <Name>{item.name}</Name>
                                 <SubContainer>
@@ -107,20 +113,26 @@ function Details() {
                                     <div>
                                         <p><span>Top Level Domain: </span>{item.topLevelDomain}</p>
                                         {item.currencies.map((currencie: any) => 
-                                            <p key={currencie.iso639_1}><span>Currencies: </span>{currencie.code}</p>
+                                            <p key={currencie.code}><span>Currencies: </span>{currencie.code}</p>
                                         )}
                                         <div><span>Languages: </span>
                                             {item.languages.map((language: any) => 
-                                                <p key={language.iso639_1}>{language.name}</p>
+                                                <p key={language.name}>{language.name}</p>
                                             )}
                                         </div>
                                     </div>
                                 </SubContainer>
                                 <div>
                                     <span>Border Countries: </span>
-                                    {item.borders.map((border: any) => 
-                                        <Link to={`/${border}`} key={border[0]}>{border}</Link>
-                                    )}
+                                    {item.borders.map((border: any) => {
+                                        return (
+                                            countriesData.filter((singleCountry: any) => singleCountry.alpha3Code === border).map((item: any) => {
+                                                return (
+                                                    <Link to={`/${item.name}`} key={Date.now()}>{item.name}</Link>
+                                                )
+                                            })
+                                        )
+                                    })}
                                 </div>
                             </Base>
                         </Wrapper>

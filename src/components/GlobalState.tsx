@@ -58,7 +58,6 @@ function reducer(state: State = initialValue, action: Action) {
 
 export const GlobalProvider: React.FC = ({children}) => {
     const [state, dispatch] = useReducer(reducer, initialValue);
-    
     async function gettingCountriesData() {
         const FetchingCountries = await fetch(URLALL);
         const res = await FetchingCountries.json();

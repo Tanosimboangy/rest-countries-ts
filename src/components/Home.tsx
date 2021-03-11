@@ -6,28 +6,31 @@ import { isTemplateExpression } from 'typescript';
 
 const HomeBase = styled.div`
     @media(min-width: 720px) {
-        max-width: 90%;
+        max-width: 85%;
         margin: auto;
         margin-bottom: 50px;
     }
 `;
-const SearchInput = styled.div`
+const SearchCountry = styled.div`
     margin-bottom: 25px;
     margin-right: 32px;
     @media(min-width: 720px) {
         display: flex;
         flex-direction: row;
-        align-items: center;
+        align-items: flex-start;
         justify-content: space-between;
         flex-wrap: wrap;
+        margin-right: 0;
     }
 `;
 const InputContainer = styled.div`
-    max-width: 300px;
+    max-width: 250px;
     margin-right: auto;
+    margin-bottom: 25px;
     @media(min-width: 720px) {
-        max-width: 230px;
+        max-width: 300px;
         margin-right: auto;
+        margin-bottom: 25px;
     }
 `;
 const Input = styled.input`
@@ -43,6 +46,31 @@ const Input = styled.input`
     font-size: 16px;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 500;
+    &:hover {
+        box-shadow: 0 0 4px #3e3939;
+    }
+    @media(min-width: 720px) {
+        margin-bottom: 0;
+    }
+`;
+const Select = styled.select`
+    width: 150px;
+    resize: vertical;
+    outline: none;
+    border: none;
+    background-color: hsl(0, 0%, 100%);
+    padding: 16px;
+    border-radius: 4px;
+    font-style: normal;
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 500;
+    &:hover {
+        box-shadow: 0 0 4px #3e3939;
+    }
+    @media(max-width: 340px) {
+        width: 100%;
+    }
 `;
 const Container = styled.div`
     display: block;
@@ -63,7 +91,7 @@ const Loading = styled.h1`
     font-style: normal;
 `;
 const Wrapper = styled.div`
-    max-width: 329px;
+    max-width: 280px;
     margin: 0;
     display: flex;
     flex-direction: row;
@@ -73,7 +101,7 @@ const Wrapper = styled.div`
     margin-right: 10px;
     margin-bottom: 40px;
     @media(min-width: 720px) {
-        max-width: 280px;
+        max-width: 240px;
         margin: 0;
         margin-bottom: 30px;
     }
@@ -86,7 +114,7 @@ const Flag = styled.img`
     border-top-right-radius: 6px;
 `;
 const Card = styled.div`
-    padding: 16px;
+    padding: 0 20px;
     width: 100%;
     height: auto;
     background-color: hsl(0, 0%, 100%);
@@ -104,7 +132,8 @@ const CountryName = styled.h2`
     font-weight: bolder;
     font-size: 16px;
     color: hsl(209, 23%, 22%);
-    margin-bottom: 20px;
+    padding-bottom: 20px;
+    padding-top: 20px;
 `;
 const Population = styled.p`
     font-family: Arial, Helvetica, sans-serif;
@@ -112,7 +141,7 @@ const Population = styled.p`
     font-weight: 400;
     font-size: 14px;
     color: hsl(209, 23%, 22%);
-    margin-bottom: 4px;
+    padding-bottom: 10px;
 `;
 const Region = styled.p`
     font-family: Arial, Helvetica, sans-serif;
@@ -120,7 +149,7 @@ const Region = styled.p`
     font-weight: 400;
     font-size: 14px;
     color: hsl(209, 23%, 22%);
-    margin-bottom: 4px;
+    padding-bottom: 10px;
 `;
 const Capital = styled.p`
     font-family: Arial, Helvetica, sans-serif;
@@ -128,6 +157,7 @@ const Capital = styled.p`
     font-weight: 400;
     font-size: 14px;
     color: hsl(209, 23%, 22%);
+    padding-bottom: 10px;
 `;
 
 function Home() {
@@ -136,18 +166,18 @@ function Home() {
 
     return (
         <HomeBase>
-            <SearchInput>
+            <SearchCountry>
                 <InputContainer>
                     <Input placeholder="Search for a country ..." onChange={searchCountry} type="text"/>
                 </InputContainer>
-                <select>
+                <Select>
                     <option value="africa">Africa</option>
                     <option value="america">America</option>
                     <option value="asia">Asia</option>
                     <option value="uerope">Europe</option>
                     <option value="oceania">Oceania</option>
-                </select>
-            </SearchInput>
+                </Select>
+            </SearchCountry>
             <Container>
                 {countriesData.length === 0? <Loading>Loading ...</Loading> :
                 countriesData.map((country: any) => {

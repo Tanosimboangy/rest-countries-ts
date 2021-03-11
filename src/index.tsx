@@ -13,7 +13,7 @@ const GlobalStyles = createGlobalStyle`
         font-style: normal;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: antialiased;
-        background:  hsl(0, 0%, 90%);
+        background:  (0deg 0% 97% / 0%);
         font-size: 16px;
         margin: 0;
         h1, h2, h3, h4, h5, h6, p {
