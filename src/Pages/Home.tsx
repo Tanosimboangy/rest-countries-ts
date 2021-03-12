@@ -1,5 +1,5 @@
 import React, {useContext} from 'react';
-import GlobalContext from './GlobalState';
+import GlobalContext from '../Context/GlobalState';
 import {Link} from "react-router-dom";
 import styled from "styled-components";
 import { isTemplateExpression } from 'typescript';
@@ -28,14 +28,13 @@ const InputContainer = styled.div`
     margin-right: auto;
     margin-bottom: 25px;
     @media(min-width: 720px) {
-        max-width: 300px;
-        margin-right: auto;
+        max-width: 500px;
+        margin-right: 0;
         margin-bottom: 25px;
     }
 `;
 const Input = styled.input`
     width: 100%;
-    resize: vertical;
     outline: none;
     border: none;
     background-color: hsl(0, 0%, 100%);
@@ -46,9 +45,11 @@ const Input = styled.input`
     font-size: 16px;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 500;
-    box-shadow: 0 0 4px #3e3939;
     @media(min-width: 720px) {
         margin-bottom: 0;
+    }
+    &:hover {
+        box-shadow: 1px 1px 4px #c5c4c4;
     }
 `;
 const Select = styled.select`
@@ -63,9 +64,11 @@ const Select = styled.select`
     font-size: 16px;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 500;
-    box-shadow: 0 0 4px #3e3939;
     @media(max-width: 340px) {
         width: 100%;
+    }
+    &:hover {
+        box-shadow: 1px 1px 6px #c5c4c4;
     }
 `;
 const Container = styled.div`
@@ -101,21 +104,27 @@ const Wrapper = styled.div`
         margin: 0;
         margin-bottom: 30px;
     }
+    &:hover {
+        border-radius: 4px;
+        transform: translateY(-6px);
+        box-shadow: rgb(0 0 0 / 5%) 0px 0px 0.7rem 0.2rem;
+        transition: transform 0.2s ease 0s, opacity 0.2s ease 0s;
+    }
 `;
 const Flag = styled.img`
     width: 100%;
     height: 150px;
     object-fit: cover;
-    border-top-left-radius: 6px;
-    border-top-right-radius: 6px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
 `;
 const Card = styled.div`
     padding: 0 20px;
     width: 100%;
     height: auto;
     background-color: hsl(0, 0%, 100%);
-    border-bottom-left-radius: 6px;
-    border-bottom-right-radius: 6px;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
     padding-bottom: 20px;
     span {
         font-weight: bolder;
@@ -162,6 +171,7 @@ function Home() {
     const {inputValue} = useContext(GlobalContext);
     const {selectedRegion} = useContext(GlobalContext);
     const {selectValue} = useContext(GlobalContext);
+    console.log(countriesData);   
     console.log(selectValue);   
 
     return (
@@ -172,14 +182,15 @@ function Home() {
                 </InputContainer>
                 <Select  value={selectValue} onChange={selectedRegion}>
                     <option value="Africa">Africa</option>
-                    <option value="America">America</option>
+                    <option value="Americas">Americas</option>
                     <option value="Asia">Asia</option>
                     <option value="Europe">Europe</option>
                     <option value="Oceania">Oceania</option>
                 </Select>
             </SearchCountry>
             <Container>
-                {/* {countriesData.length === 0? <Loading>Loading ...</Loading> :
+                {countriesData.length === 0? <Loading>Loading ...</Loading> :
+                // filter((items: any) => items.region === selectValue).
                 countriesData.filter((item: any) => item.name.toLowerCase().includes(inputValue.toLowerCase())).map((country: any) => {
                     const selectedCountry = country.name;
                     return (
@@ -195,26 +206,27 @@ function Home() {
                             </Wrapper>
                         </Link>)
                     })
-                } */}
-                {countriesData.length === 0? <Loading>Loading ...</Loading> :
-                countriesData.filter((item: any) => item.region === inputValue).map((country: any) => {
-                    const selectedCountry = country.name;
-                    return (
-                        <Link to={`/${selectedCountry}`}  key={country.name}>
-                            <Wrapper>
-                                <Flag src={country.flag} alt="country_flag"/>
-                                <Card>
-                                    <CountryName>{selectedCountry}</CountryName>
-                                    <Population><span>Population: </span>{country.population}</Population>
-                                    <Region><span>Region: </span>{country.region}</Region>
-                                    <Capital><span>Capital: </span> {country.capital}</Capital>
-                                </Card>
-                            </Wrapper>
-                        </Link>)
-                    })
                 }
             </Container>
         </HomeBase>
     )
 }
 export default Home;
+
+{/* {countriesData.length === 0? <Loading>Loading ...</Loading> :
+countriesData.filter((item: any) => item.region === inputValue).map((country: any) => {
+    const selectedCountry = country.name;
+    return (
+        <Link to={`/${selectedCountry}`}  key={country.name}>
+            <Wrapper>
+                <Flag src={country.flag} alt="country_flag"/>
+                <Card>
+                    <CountryName>{selectedCountry}</CountryName>
+                    <Population><span>Population: </span>{country.population}</Population>
+                    <Region><span>Region: </span>{country.region}</Region>
+                    <Capital><span>Capital: </span> {country.capital}</Capital>
+                </Card>
+            </Wrapper>
+        </Link>)
+    })
+} */}

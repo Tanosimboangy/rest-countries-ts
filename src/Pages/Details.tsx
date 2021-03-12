@@ -1,6 +1,6 @@
 import React, {useContext} from 'react';
 import { useParams} from 'react-router-dom';
-import GlobalContext from './GlobalState';
+import GlobalContext from '../Context/GlobalState';
 import styled from "styled-components";
 import {Link} from "react-router-dom";
 
@@ -12,9 +12,8 @@ const DetailsContainer = styled.div`
     }
 `;
 const Wrapper = styled.div`
-    max-width: 320px;
-    margin: auto;
-    @media(min-width: 720px) {
+    display: grid;
+    @media(min-width: 950px) {
         max-width: 100%;
         margin: auto;
         display: grid;
@@ -29,8 +28,9 @@ const Flag = styled.div`
         max-width: 600pxpx;
         margin: auto;
     }
-`;
+    `;
 const Image = styled.img`
+    border-radius: 8px;
     width: 100%;
     @media(min-width: 720px) {}
 `;
@@ -124,7 +124,7 @@ function Details() {
                                 </SubContainer>
                                 <div>
                                     <span>Border Countries: </span>
-                                    {item.borders.map((border: any) => {
+                                    {/* {item.borders.map((border: any) => {
                                         return (
                                             countriesData.filter((singleCountry: any) => singleCountry.alpha3Code === border).map((item: any) => {
                                                 return (
@@ -132,7 +132,7 @@ function Details() {
                                                 )
                                             })
                                         )
-                                    })}
+                                    })} */}
                                 </div>
                             </Base>
                         </Wrapper>

@@ -1,8 +1,8 @@
 import React from 'react';
-import Head from './components/Head';
-import Home from './components/Home';
-import Details from './components/Details';
-import { GlobalProvider} from './components/GlobalState';
+import Head from './Pages/Head';
+import Home from './Pages/Home';
+import Details from './Pages/Details';
+import { GlobalProvider} from './Context/GlobalState';
 import styled from 'styled-components';
 import { Route, Switch } from 'react-router';
 
