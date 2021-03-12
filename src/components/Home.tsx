@@ -46,9 +46,7 @@ const Input = styled.input`
     font-size: 16px;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 500;
-    &:hover {
-        box-shadow: 0 0 4px #3e3939;
-    }
+    box-shadow: 0 0 4px #3e3939;
     @media(min-width: 720px) {
         margin-bottom: 0;
     }
@@ -65,9 +63,7 @@ const Select = styled.select`
     font-size: 16px;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 500;
-    &:hover {
-        box-shadow: 0 0 4px #3e3939;
-    }
+    box-shadow: 0 0 4px #3e3939;
     @media(max-width: 340px) {
         width: 100%;
     }
@@ -163,24 +159,28 @@ const Capital = styled.p`
 function Home() {
     const {countriesData} = useContext(GlobalContext);
     const {searchCountry} = useContext(GlobalContext);
+    const {inputValue} = useContext(GlobalContext);
+    const {selectedRegion} = useContext(GlobalContext);
+    const {selectValue} = useContext(GlobalContext);
+    console.log(selectValue);   
 
     return (
         <HomeBase>
             <SearchCountry>
                 <InputContainer>
-                    <Input placeholder="Search for a country ..." onChange={searchCountry} type="text"/>
+                    <Input placeholder="Search for a country ..." value={inputValue} onChange={searchCountry} type="text"/>
                 </InputContainer>
-                <Select>
-                    <option value="africa">Africa</option>
-                    <option value="america">America</option>
-                    <option value="asia">Asia</option>
-                    <option value="uerope">Europe</option>
-                    <option value="oceania">Oceania</option>
+                <Select  value={selectValue} onChange={selectedRegion}>
+                    <option value="Africa">Africa</option>
+                    <option value="America">America</option>
+                    <option value="Asia">Asia</option>
+                    <option value="Europe">Europe</option>
+                    <option value="Oceania">Oceania</option>
                 </Select>
             </SearchCountry>
             <Container>
-                {countriesData.length === 0? <Loading>Loading ...</Loading> :
-                countriesData.map((country: any) => {
+                {/* {countriesData.length === 0? <Loading>Loading ...</Loading> :
+                countriesData.filter((item: any) => item.name.toLowerCase().includes(inputValue.toLowerCase())).map((country: any) => {
                     const selectedCountry = country.name;
                     return (
                         <Link to={`/${selectedCountry}`}  key={country.name}>
@@ -188,6 +188,23 @@ function Home() {
                                 <Flag src={country.flag} alt="country_flag"/>
                                 <Card>
                                     <CountryName>{country.name}</CountryName>
+                                    <Population><span>Population: </span>{country.population}</Population>
+                                    <Region><span>Region: </span>{country.region}</Region>
+                                    <Capital><span>Capital: </span> {country.capital}</Capital>
+                                </Card>
+                            </Wrapper>
+                        </Link>)
+                    })
+                } */}
+                {countriesData.length === 0? <Loading>Loading ...</Loading> :
+                countriesData.filter((item: any) => item.region === inputValue).map((country: any) => {
+                    const selectedCountry = country.name;
+                    return (
+                        <Link to={`/${selectedCountry}`}  key={country.name}>
+                            <Wrapper>
+                                <Flag src={country.flag} alt="country_flag"/>
+                                <Card>
+                                    <CountryName>{selectedCountry}</CountryName>
                                     <Population><span>Population: </span>{country.population}</Population>
                                     <Region><span>Region: </span>{country.region}</Region>
                                     <Capital><span>Capital: </span> {country.capital}</Capital>

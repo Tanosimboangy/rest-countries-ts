@@ -4,11 +4,17 @@ const URLALL = "https://restcountries.eu/rest/v2/all";
 export const initialValue: State = {
     countriesData: [],
     searchCountry: () => {},
+    selectedRegion: () => {},
+    inputValue: "",
+    selectValue: "",
 }
 
 type State = {
     countriesData: CountriesData[],
     searchCountry: (e: React.ChangeEvent<HTMLInputElement>) => void,
+    selectedRegion: (e: React.ChangeEvent<HTMLInputElement>) => void,
+    inputValue: string,
+    selectValue: any,
 }
 
 type CountriesData = {
@@ -40,7 +46,8 @@ type CountriesData = {
 
 type Action = 
 |   {type: "FETCHING_COUNTRIES", payload: CountriesData[]}
-|   {type: "FETCHING_SELETED_COUNTRIES", value: any}
+|   {type: "FETCHING_SELECTED_COUNTRIES", value: string}
+|   {type: "FETCHING_SELECTED_REGION", value: string}
 
 const GlobalContext = createContext(initialValue);
 export default GlobalContext;
@@ -49,8 +56,10 @@ function reducer(state: State = initialValue, action: Action) {
     switch(action.type) {
         case "FETCHING_COUNTRIES":
             return {...state, countriesData: action.payload};
-        case "FETCHING_SELETED_COUNTRIES":
-            return {...state, countriesData: action.value};
+        case "FETCHING_SELECTED_COUNTRIES":
+            return {...state, inputValue: action.value};
+        case "FETCHING_SELECTED_REGION":
+            return {...state, selectValue: action.value};
         default:
             return state;
     }
@@ -71,7 +80,10 @@ export const GlobalProvider: React.FC = ({children}) => {
         <GlobalContext.Provider 
             value={{
                 countriesData: state.countriesData,
-                searchCountry: (e) => dispatch({type: "FETCHING_SELETED_COUNTRIES", value: e.target.value})
+                searchCountry: (e) => dispatch({type: "FETCHING_SELECTED_COUNTRIES", value: e.target.value}),
+                selectedRegion: (e) => dispatch({type: "FETCHING_SELECTED_REGION", value: e.target.value}),
+                inputValue: state.inputValue,
+                selectValue: state.selectValue,
                 }}>
             {children}
         </GlobalContext.Provider>
