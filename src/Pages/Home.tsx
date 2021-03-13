@@ -171,8 +171,11 @@ function Home() {
     const {inputValue} = useContext(GlobalContext);
     const {selectedRegion} = useContext(GlobalContext);
     const {selectValue} = useContext(GlobalContext);
-    console.log(countriesData);   
-    console.log(selectValue);   
+    // const filteredCountries = inputValue !== "" ? countriesData.filter((item: any) => item.name.toLowerCase().includes(inputValue.toLowerCase())) : selectValue !== "" ? countriesData.filter((items: any) => items.region === selectValue) : inputValue !=="" && selectValue !=="" ? countriesData.filter((item: any) => item.name.toLowerCase().includes(inputValue.toLowerCase())).countriesData.filter((items: any) => items.region === selectValue) : countriesData;
+
+    const filteredCountriesByName = countriesData.filter((item: any) => item.name.toLowerCase().includes(inputValue.toLowerCase()))
+    // const filteredCountriesByRegion = filteredCountriesByName(selectValue !== "" ? countriesData.filter((items: any) => items.region === selectValue) : );
+    // console.log(filteredCountriesByName, filteredCountriesByRegion)
 
     return (
         <HomeBase>
@@ -181,6 +184,7 @@ function Home() {
                     <Input placeholder="Search for a country ..." value={inputValue} onChange={searchCountry} type="text"/>
                 </InputContainer>
                 <Select  value={selectValue} onChange={selectedRegion}>
+                    <option value="">Filter by regions</option>
                     <option value="Africa">Africa</option>
                     <option value="Americas">Americas</option>
                     <option value="Asia">Asia</option>
@@ -190,8 +194,8 @@ function Home() {
             </SearchCountry>
             <Container>
                 {countriesData.length === 0? <Loading>Loading ...</Loading> :
-                // filter((items: any) => items.region === selectValue).
-                countriesData.filter((item: any) => item.name.toLowerCase().includes(inputValue.toLowerCase())).map((country: any) => {
+                 
+                 filteredCountriesByName.map((country: any) => {
                     const selectedCountry = country.name;
                     return (
                         <Link to={`/${selectedCountry}`}  key={country.name}>
