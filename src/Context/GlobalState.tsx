@@ -4,6 +4,7 @@ const URLALL = 'https://restcountries.eu/rest/v2/all'
 export const initialValue: State = {
   inputValue: '',
   selectValue: '',
+  isSelected: false,
   countriesData: [],
   searchCountry: () => {},
   selectedRegion: () => {},
@@ -11,7 +12,8 @@ export const initialValue: State = {
 
 interface State {
   inputValue: string
-  selectValue: any
+  selectValue: string
+  isSelected: boolean
   countriesData: CountriesData[]
   selectedRegion: (e: React.ChangeEvent<HTMLInputElement>) => void
   searchCountry: (e: React.ChangeEvent<HTMLInputElement>) => void
@@ -80,6 +82,9 @@ export const GlobalProvider: React.FC = ({ children }) => {
     <GlobalContext.Provider
       value={{
         countriesData: state.countriesData,
+        inputValue: state.inputValue,
+        selectValue: state.selectValue,
+        isSelected: state.isSelected,
         searchCountry: (e) =>
           dispatch({
             type: 'FETCHING_SELECTED_COUNTRIES',
@@ -87,8 +92,6 @@ export const GlobalProvider: React.FC = ({ children }) => {
           }),
         selectedRegion: (e) =>
           dispatch({ type: 'FETCHING_SELECTED_REGION', value: e.target.value }),
-        inputValue: state.inputValue,
-        selectValue: state.selectValue,
       }}>
       {children}
     </GlobalContext.Provider>

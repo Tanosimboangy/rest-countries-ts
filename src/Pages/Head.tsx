@@ -6,7 +6,7 @@ const Container = styled.div`
   box-shadow: rgb(0 0 0 / 6%) 0px 0.2rem 0.4rem;
   margin-bottom: 35px;
   @media (min-width: 760px) {
-    margin-bottom: 70px;
+    margin-bottom: 50px;
   }
 `
 const Header = styled.header`
