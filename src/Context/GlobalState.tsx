@@ -8,6 +8,7 @@ export const initialValue: State = {
   countriesData: [],
   searchCountry: () => {},
   selectedRegion: () => {},
+  switchMode: () => {},
 }
 
 interface State {
@@ -17,6 +18,7 @@ interface State {
   countriesData: CountriesData[]
   selectedRegion: (e: React.ChangeEvent<HTMLInputElement>) => void
   searchCountry: (e: React.ChangeEvent<HTMLInputElement>) => void
+  switchMode: () => void
 }
 
 interface CountriesData {
@@ -50,6 +52,7 @@ type Action =
   | { type: 'FETCHING_COUNTRIES'; payload: CountriesData[] }
   | { type: 'FETCHING_SELECTED_COUNTRIES'; value: string }
   | { type: 'FETCHING_SELECTED_REGION'; value: string }
+  | { type: 'SWITCH_MODE' }
 
 const GlobalContext = createContext(initialValue)
 export default GlobalContext
@@ -62,6 +65,11 @@ function reducer(state: State = initialValue, action: Action) {
       return { ...state, inputValue: action.value }
     case 'FETCHING_SELECTED_REGION':
       return { ...state, selectValue: action.value }
+    case 'SWITCH_MODE': {
+      console.log(!state.isSelected)
+
+      return { ...state, isSelected: !state.isSelected }
+    }
     default:
       return state
   }
@@ -91,7 +99,11 @@ export const GlobalProvider: React.FC = ({ children }) => {
             value: e.target.value,
           }),
         selectedRegion: (e) =>
-          dispatch({ type: 'FETCHING_SELECTED_REGION', value: e.target.value }),
+          dispatch({
+            type: 'FETCHING_SELECTED_REGION',
+            value: e.target.value,
+          }),
+        switchMode: () => dispatch({ type: 'SWITCH_MODE' }),
       }}>
       {children}
     </GlobalContext.Provider>

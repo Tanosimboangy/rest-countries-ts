@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import GlobalContext from '../Context/GlobalState'
 import styled from 'styled-components'
 
 const Container = styled.div`
@@ -50,11 +51,13 @@ interface Props {
 }
 
 const Head = ({ title = 'Hello' }: Props) => {
+  const { switchMode } = useContext(GlobalContext)
+
   return (
     <Container>
       <Header>
         <Title>{title}</Title>
-        <ModeText>Dark Mode</ModeText>
+        <ModeText onClick={switchMode}>Dark Mode</ModeText>
       </Header>
     </Container>
   )
