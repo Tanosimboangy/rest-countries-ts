@@ -3,45 +3,50 @@ import GlobalContext from '../Context/GlobalState'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
-const Container = styled.div`
+const ConuntriesList = styled.div`
   position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  @media (min-width: 760px) {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    gap: 20px;
-    justify-content: space-between;
-    flex-wrap: wrap;
+  display: grid;
+  justify-items: center;
+  a {
+    @media (min-width: 500px) {
+      width: -webkit-fill-available;
+    }
   }
+  @media (min-width: 500px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  @media (min-width: 1000px) {
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 3%;
+  }
+`
+const LoadingContainer = styled.div`
+  height: 10em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `
 const Loading = styled.h1`
   color: blue;
   font-size: 45px;
   line-height: 55px;
   font-weight: 700;
-  font-family: Arial, Helvetica, sans-serif;
   font-style: normal;
-  position: absolute;
-  top: 50%;
-  right: 50%;
-  transform: translate(50%, -50%);
 `
 const Wrapper = styled.div`
   max-width: 280px;
-  margin: 0;
   display: flex;
   flex-direction: row;
   align-items: flex-start;
   justify-content: space-between;
   flex-wrap: wrap;
-  margin-right: 10px;
   margin-bottom: 40px;
   @media (min-width: 760px) {
-    max-width: 240px;
-    margin: 0;
     margin-bottom: 30px;
   }
   &:hover {
@@ -55,51 +60,47 @@ const Flag = styled.img`
   width: 100%;
   height: 150px;
   object-fit: cover;
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
 `
 const Card = styled.div`
   padding: 0 20px;
   width: 100%;
   height: auto;
   background-color: hsl(0, 0%, 100%);
-  border-bottom-left-radius: 4px;
-  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
   padding-bottom: 20px;
   span {
-    font-weight: bolder;
+    font-weight: 600;
     color: black;
   }
 `
 const CountryName = styled.h2`
-  font-family: Arial, Helvetica, sans-serif;
   font-style: normal;
-  font-weight: bolder;
+  font-weight: 300;
   font-size: 16px;
   color: hsl(209, 23%, 22%);
   padding-bottom: 20px;
   padding-top: 20px;
 `
 const Population = styled.p`
-  font-family: Arial, Helvetica, sans-serif;
   font-style: normal;
-  font-weight: 400;
+  font-weight: 300;
   font-size: 14px;
   color: hsl(209, 23%, 22%);
   padding-bottom: 10px;
 `
 const Region = styled.p`
-  font-family: Arial, Helvetica, sans-serif;
   font-style: normal;
-  font-weight: 400;
+  font-weight: 300;
   font-size: 14px;
   color: hsl(209, 23%, 22%);
   padding-bottom: 10px;
 `
 const Capital = styled.p`
-  font-family: Arial, Helvetica, sans-serif;
   font-style: normal;
-  font-weight: 400;
+  font-weight: 300;
   font-size: 14px;
   color: hsl(209, 23%, 22%);
   padding-bottom: 10px;
@@ -109,43 +110,47 @@ function Home() {
   const { countriesData, inputValue, selectValue } = useContext(GlobalContext)
 
   return (
-    <Container>
+    <>
       {countriesData.length === 0 ? (
-        <Loading>Loading ...</Loading>
+        <LoadingContainer>
+          <Loading>Loading ...</Loading>
+        </LoadingContainer>
       ) : (
-        countriesData
-          .filter((country: any) =>
-            country.name.toLowerCase().includes(inputValue)
-          )
-          .filter((region: any) =>
-            selectValue ? region.region === selectValue : region
-          )
-          .map((country: any) => {
-            const selectedCountry = country.name
-            return (
-              <Link to={`/${selectedCountry}`} key={country.name}>
-                <Wrapper>
-                  <Flag src={country.flag} alt='country_flag' />
-                  <Card>
-                    <CountryName>{country.name}</CountryName>
-                    <Population>
-                      <span>Population: </span>
-                      {country.population}
-                    </Population>
-                    <Region>
-                      <span>Region: </span>
-                      {country.region}
-                    </Region>
-                    <Capital>
-                      <span>Capital: </span> {country.capital}
-                    </Capital>
-                  </Card>
-                </Wrapper>
-              </Link>
+        <ConuntriesList>
+          {countriesData
+            .filter((country: any) =>
+              country.name.toLowerCase().includes(inputValue.toLowerCase())
             )
-          })
+            .filter((region: any) =>
+              selectValue ? region.region === selectValue : region
+            )
+            .map((country: any) => {
+              const selectedCountry = country.name
+              return (
+                <Link to={`/${selectedCountry}`} key={country.name}>
+                  <Wrapper>
+                    <Flag src={country.flag} alt='country_flag' />
+                    <Card>
+                      <CountryName>{country.name}</CountryName>
+                      <Population>
+                        <span>Population: </span>
+                        {country.population}
+                      </Population>
+                      <Region>
+                        <span>Region: </span>
+                        {country.region}
+                      </Region>
+                      <Capital>
+                        <span>Capital: </span> {country.capital}
+                      </Capital>
+                    </Card>
+                  </Wrapper>
+                </Link>
+              )
+            })}
+        </ConuntriesList>
       )}
-    </Container>
+    </>
   )
 }
 export default Home

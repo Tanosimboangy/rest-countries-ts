@@ -15,7 +15,7 @@ const SearchCountry = styled.div`
 `
 const Form = styled.form`
   background-color: hsl(0, 0%, 100%);
-  box-shadow: 1px 1px 2px #e5e5e5;
+  box-shadow: rgb(0 0 0 / 6%) 0px 0.2rem 0.9rem;
   border-radius: 4px;
   padding: 18px 18px 18px 26px;
   margin-bottom: 50px;
@@ -42,12 +42,12 @@ const Input = styled.input`
   font-weight: 500;
   font-size: 16px;
 `
-const Select = styled.button`
+const Select = styled.select`
   width: 100%;
   background-color: hsl(0, 0%, 100%);
   padding: 18px 20px;
   border-radius: 4px;
-  box-shadow: 1px 1px 2px #e5e5e5;
+  box-shadow: rgb(0 0 0 / 6%) 0px 0.2rem 0.9rem;
   font-family: Arial, Helvetica, sans-serif;
   font-style: normal;
   font-weight: 500;

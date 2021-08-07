@@ -39,13 +39,13 @@ const ModeText = styled.button`
   font-weight: 400;
   font-style: normal;
   background: rgb(255, 255, 255);
-  padding-top: 0;
   margin: 0;
+  padding: 16px;
   @media (min-width: 760px) {
     font-size: 18px;
   }
 `
-type Props = {
+interface Props {
   title: string
 }
 
