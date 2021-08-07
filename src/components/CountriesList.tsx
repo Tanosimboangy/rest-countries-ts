@@ -78,7 +78,7 @@ const Card = styled.div`
 `
 const CountryName = styled.h2`
   font-style: normal;
-  font-weight: 300;
+  font-weight: 800;
   font-size: 16px;
   color: hsl(209, 23%, 22%);
   padding-bottom: 20px;

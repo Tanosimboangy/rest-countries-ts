@@ -1,49 +1,49 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import { BrowserRouter as Router } from 'react-router-dom';
-import { createGlobalStyle } from 'styled-components';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import App from './App'
+import reportWebVitals from './reportWebVitals'
+import { BrowserRouter as Router } from 'react-router-dom'
+import { createGlobalStyle } from 'styled-components'
 
 const GlobalStyles = createGlobalStyle`
-    html, body {
-        /* font-family: "Rubik"; */
-        font-family: "Arial";
-        font-style: normal;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: antialiased;
-        background-color: rgb(250, 250, 250);
-        font-size: 16px;
-        margin: 0;
-        h1, h2, h3, h4, h5, h6, p {
-            margin: 0;
-        }
-        ul {
-            padding: 0;
-            margin: 0;
-            li {
-                list-style: none;
-            }
-        }
-        a {
-            text-decoration: none;
-        }
+    @font-face {
+      font-family: 'NunitoSans';
+      src: local(NunitoSans), url(./fonts/NunitoSans-Regular.woff2) format('woff2'),
+      url(./fonts/NunitoSans-Regular.woff) format('woff');
     }
-`;
-
+    html, body {
+      font-family: 'NunitoSans', sans-serif;
+      font-style: normal;
+      background-color: rgb(250, 250, 250);
+      margin: 0;
+      h1, h2, h3, h4, h5, h6, p {
+          margin: 0;
+      }
+      ul {
+          padding: 0;
+          margin: 0;
+          li {
+              list-style: none;
+          }
+      }
+      a {
+          text-decoration: none;
+      }
+      button,input,select {
+        outline: none;
+        border: none;
+        cursor: pointer;
+      }
+    }
+`
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
-      <GlobalStyles/>
+      <GlobalStyles />
       <App />
     </Router>
   </React.StrictMode>,
   document.getElementById('root')
-);
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+)
+reportWebVitals()
