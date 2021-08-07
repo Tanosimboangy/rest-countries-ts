@@ -8,8 +8,8 @@ import { createGlobalStyle } from 'styled-components'
 const GlobalStyles = createGlobalStyle`
     @font-face {
       font-family: 'NunitoSans';
-      src: local(NunitoSans), url(./fonts/NunitoSans-Regular.woff2) format('woff2'),
-      url(./fonts/NunitoSans-Regular.woff) format('woff');
+      src: local(NunitoSans), url(./fonts/NunitoSans-Regular.woff2) format('woff2') format('embedded-opentype'),
+      url(./fonts/NunitoSans-Regular.woff) format('woff') format('embedded-opentype');
     }
     html, body {
       font-family: 'NunitoSans', sans-serif;
