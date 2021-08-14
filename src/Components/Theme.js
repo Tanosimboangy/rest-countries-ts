@@ -1,10 +1,10 @@
 export const lightTheme = {
-  body: 'white',
-  text: '#363537',
-  background: '#363537',
+  body: '#FAFAFA',
+  text: '#000000',
+  CardAndInputs: '#FFFFFF',
 }
 export const darkTheme = {
-  body: 'black',
-  text: '#FAFAFA',
-  background: '#999',
+  body: '#2B3945 ',
+  text: '#FFFFFF',
+  CardAndInputs: '#202C37',
 }

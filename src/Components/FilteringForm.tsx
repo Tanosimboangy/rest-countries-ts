@@ -1,66 +1,13 @@
 import React, { useContext } from 'react'
-import GlobalContext from '../Context/GlobalState'
-import styled from 'styled-components'
+import GlobalContext from '../GlobalContext/GlobalState'
+import {
+  SearchCountry,
+  Form,
+  Svg,
+  Input,
+  Select,
+} from '../Styles/FilteringForm'
 
-const SearchCountry = styled.div`
-  display: flex;
-  flex-direction: column;
-  @media (min-width: 760px) {
-    display: flex;
-    flex-direction: row;
-    align-items: baseline;
-    justify-content: space-between;
-    margin-bottom: 50px;
-  }
-`
-const Form = styled.form`
-  background-color: hsl(0, 0%, 100%);
-  box-shadow: rgb(0 0 0 / 6%) 0px 0.2rem 0.9rem;
-  border-radius: 4px;
-  padding: 18px 18px 18px 26px;
-  margin-bottom: 50px;
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  gap: 20px;
-  @media (min-width: 760px) {
-    width: 40%;
-    margin-bottom: 0;
-  }
-  &:hover {
-    box-shadow: 1px 1px 4px #c5c4c4;
-  }
-`
-const Svg = styled.svg`
-  width: 16px;
-  height: 16px;
-`
-const Input = styled.input`
-  width: 80%;
-  font-family: Arial, Helvetica, sans-serif;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 16px;
-`
-const Select = styled.select`
-  width: 100%;
-  background-color: hsl(0, 0%, 100%);
-  padding: 18px 20px;
-  border-radius: 4px;
-  box-shadow: rgb(0 0 0 / 6%) 0px 0.2rem 0.9rem;
-  font-family: Arial, Helvetica, sans-serif;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 16px;
-  margin-bottom: 50px;
-  @media (min-width: 760px) {
-    width: 220px;
-    margin-bottom: 0;
-  }
-  &:hover {
-    box-shadow: 1px 1px 4px #c5c4c4;
-  }
-`
 function FilteringForm() {
   const { searchCountry, inputValue, selectedRegion, selectValue } =
     useContext(GlobalContext)

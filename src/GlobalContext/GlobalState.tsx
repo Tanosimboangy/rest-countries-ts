@@ -14,7 +14,7 @@ export const initialValue: State = {
 interface State {
   inputValue: string
   selectValue: string
-  theme: any
+  theme?: string
   countriesData: CountriesData[]
   selectedRegion: (e: React.ChangeEvent<HTMLInputElement>) => void
   searchCountry: (e: React.ChangeEvent<HTMLInputElement>) => void
@@ -80,16 +80,9 @@ export const GlobalProvider: React.FC = ({ children }) => {
     const res = await FetchingCountries.json()
     dispatch({ type: 'FETCHING_COUNTRIES', payload: res })
   }
-  const toggleMode = () => {
-    dispatch({
-      type: 'SWITCH_MODE',
-      value: state.theme === 'light' ? 'dark' : 'light',
-    })
-  }
 
   useEffect(() => {
     gettingCountriesData()
-    toggleMode()
   }, [])
 
   return (
@@ -109,7 +102,11 @@ export const GlobalProvider: React.FC = ({ children }) => {
             type: 'FETCHING_SELECTED_REGION',
             value: e.target.value,
           }),
-        switchMode: toggleMode,
+        switchMode: () =>
+          dispatch({
+            type: 'SWITCH_MODE',
+            value: state.theme === 'light' ? 'dark' : 'light',
+          }),
       }}>
       {children}
     </GlobalContext.Provider>
