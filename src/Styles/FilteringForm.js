@@ -35,6 +35,7 @@ export const Input = styled.input`
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
+  color: ${({ theme }) => theme.text};
   background-color: ${({ theme }) => theme.CardAndInputs};
 `
 export const Select = styled.select`
@@ -48,6 +49,7 @@ export const Select = styled.select`
   font-weight: 500;
   font-size: 16px;
   margin-bottom: 50px;
+  color: ${({ theme }) => theme.text};
   @media (min-width: 760px) {
     width: 220px;
     margin-bottom: 0;
