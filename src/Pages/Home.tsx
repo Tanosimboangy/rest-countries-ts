@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import FilteringForm from '../components/FilteringForm'
-import CountriesList from '../components/CountriesList'
+import FilteringForm from '../Components/FilteringForm'
+import CountriesList from '../Components/CountriesList'
 
 const WrapContainer = styled.div`
   width: 90%;

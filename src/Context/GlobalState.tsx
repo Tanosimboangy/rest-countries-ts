@@ -4,7 +4,7 @@ const URLALL = 'https://restcountries.eu/rest/v2/all'
 export const initialValue: State = {
   inputValue: '',
   selectValue: '',
-  isSelected: false,
+  theme: 'light',
   countriesData: [],
   searchCountry: () => {},
   selectedRegion: () => {},
@@ -14,7 +14,7 @@ export const initialValue: State = {
 interface State {
   inputValue: string
   selectValue: string
-  isSelected: boolean
+  theme: any
   countriesData: CountriesData[]
   selectedRegion: (e: React.ChangeEvent<HTMLInputElement>) => void
   searchCountry: (e: React.ChangeEvent<HTMLInputElement>) => void
@@ -52,7 +52,7 @@ type Action =
   | { type: 'FETCHING_COUNTRIES'; payload: CountriesData[] }
   | { type: 'FETCHING_SELECTED_COUNTRIES'; value: string }
   | { type: 'FETCHING_SELECTED_REGION'; value: string }
-  | { type: 'SWITCH_MODE' }
+  | { type: 'SWITCH_MODE'; value: string }
 
 const GlobalContext = createContext(initialValue)
 export default GlobalContext
@@ -66,9 +66,7 @@ function reducer(state: State = initialValue, action: Action) {
     case 'FETCHING_SELECTED_REGION':
       return { ...state, selectValue: action.value }
     case 'SWITCH_MODE': {
-      console.log(!state.isSelected)
-
-      return { ...state, isSelected: !state.isSelected }
+      return { ...state, theme: action.value }
     }
     default:
       return state
@@ -82,8 +80,16 @@ export const GlobalProvider: React.FC = ({ children }) => {
     const res = await FetchingCountries.json()
     dispatch({ type: 'FETCHING_COUNTRIES', payload: res })
   }
+  const toggleMode = () => {
+    dispatch({
+      type: 'SWITCH_MODE',
+      value: state.theme === 'light' ? 'dark' : 'light',
+    })
+  }
+
   useEffect(() => {
     gettingCountriesData()
+    toggleMode()
   }, [])
 
   return (
@@ -92,7 +98,7 @@ export const GlobalProvider: React.FC = ({ children }) => {
         countriesData: state.countriesData,
         inputValue: state.inputValue,
         selectValue: state.selectValue,
-        isSelected: state.isSelected,
+        theme: state.theme,
         searchCountry: (e) =>
           dispatch({
             type: 'FETCHING_SELECTED_COUNTRIES',
@@ -103,7 +109,7 @@ export const GlobalProvider: React.FC = ({ children }) => {
             type: 'FETCHING_SELECTED_REGION',
             value: e.target.value,
           }),
-        switchMode: () => dispatch({ type: 'SWITCH_MODE' }),
+        switchMode: toggleMode,
       }}>
       {children}
     </GlobalContext.Provider>
