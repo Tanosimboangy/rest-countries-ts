@@ -23,7 +23,7 @@ export const Header = styled.header`
   }
 `
 export const Title = styled.h1`
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
   font-style: normal;
   white-space: nowrap;

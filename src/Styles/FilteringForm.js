@@ -34,7 +34,7 @@ export const Input = styled.input`
   font-family: Arial, Helvetica, sans-serif;
   font-style: normal;
   font-weight: 500;
-  font-size: 16px;
+  font-size: 14px;
   color: ${({ theme }) => theme.text};
   background-color: ${({ theme }) => theme.CardAndInputs};
 `
@@ -47,7 +47,7 @@ export const Select = styled.select`
   font-family: Arial, Helvetica, sans-serif;
   font-style: normal;
   font-weight: 500;
-  font-size: 16px;
+  font-size: 14px;
   margin-bottom: 50px;
   color: ${({ theme }) => theme.text};
   @media (min-width: 760px) {
