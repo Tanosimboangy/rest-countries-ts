@@ -3,6 +3,7 @@ import styled from 'styled-components'
 export const SearchCountry = styled.div`
   display: flex;
   flex-direction: column;
+  position: relative;
   @media (min-width: 760px) {
     display: flex;
     flex-direction: row;
@@ -38,7 +39,7 @@ export const Input = styled.input`
   color: ${({ theme }) => theme.text};
   background-color: ${({ theme }) => theme.CardAndInputs};
 `
-export const Select = styled.select`
+export const SelectBtn = styled.button`
   width: 100%;
   background-color: ${({ theme }) => theme.CardAndInputs};
   padding: 18px 20px;
@@ -49,9 +50,27 @@ export const Select = styled.select`
   font-weight: 500;
   font-size: 14px;
   margin-bottom: 50px;
+  text-align: left;
   color: ${({ theme }) => theme.text};
   @media (min-width: 760px) {
     width: 220px;
     margin-bottom: 0;
   }
+`
+export const BtnSelectWrapper = styled.div`
+  padding: 20px 0;
+  border-radius: 4px;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: ${({ theme }) => theme.CardAndInputs};
+  position: absolute;
+  top: 8.2rem;
+  width: 100%;
+  display: grid;
+  z-index: 1;
+`
+export const BtnItem = styled.button`
+  text-align: left;
+  padding: 8px 25px;
+  color: ${({ theme }) => theme.text};
+  background-color: ${({ theme }) => theme.CardAndInputs};
 `

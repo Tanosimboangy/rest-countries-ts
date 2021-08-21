@@ -3,22 +3,26 @@ const URLALL = 'https://restcountries.eu/rest/v2/all'
 
 export const initialValue: State = {
   inputValue: '',
-  selectValue: '',
   theme: 'light',
+  selectValue: '',
+  showBtns: false,
   countriesData: [],
   searchCountry: () => {},
   selectedRegion: () => {},
   switchMode: () => {},
+  showButtons: () => {},
 }
 
 interface State {
+  theme?: string
   inputValue: string
   selectValue: string
-  theme?: string
+  showBtns: boolean
   countriesData: CountriesData[]
+  switchMode: () => void
+  showButtons: () => void
   selectedRegion: (e: React.ChangeEvent<HTMLInputElement>) => void
   searchCountry: (e: React.ChangeEvent<HTMLInputElement>) => void
-  switchMode: () => void
 }
 
 interface CountriesData {
@@ -53,6 +57,7 @@ type Action =
   | { type: 'FETCHING_SELECTED_COUNTRIES'; value: string }
   | { type: 'FETCHING_SELECTED_REGION'; value: string }
   | { type: 'SWITCH_MODE'; value: string }
+  | { type: 'SHOW_BUTTON'; value: boolean }
 
 const GlobalContext = createContext(initialValue)
 export default GlobalContext
@@ -67,6 +72,9 @@ function reducer(state: State = initialValue, action: Action) {
       return { ...state, selectValue: action.value }
     case 'SWITCH_MODE': {
       return { ...state, theme: action.value }
+    }
+    case 'SHOW_BUTTON': {
+      return { ...state, showBtn: action.value }
     }
     default:
       return state
@@ -88,10 +96,11 @@ export const GlobalProvider: React.FC = ({ children }) => {
   return (
     <GlobalContext.Provider
       value={{
-        countriesData: state.countriesData,
+        theme: state.theme,
+        showBtns: state.showBtns,
         inputValue: state.inputValue,
         selectValue: state.selectValue,
-        theme: state.theme,
+        countriesData: state.countriesData,
         searchCountry: (e) =>
           dispatch({
             type: 'FETCHING_SELECTED_COUNTRIES',
@@ -107,6 +116,12 @@ export const GlobalProvider: React.FC = ({ children }) => {
             type: 'SWITCH_MODE',
             value: state.theme === 'light' ? 'dark' : 'light',
           }),
+        showButtons: () => {
+          dispatch({
+            type: 'SHOW_BUTTON',
+            value: (state.showBtns = !state.showBtns),
+          })
+        },
       }}>
       {children}
     </GlobalContext.Provider>

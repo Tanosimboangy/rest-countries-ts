@@ -1,16 +1,26 @@
 import React, { useContext } from 'react'
 import GlobalContext from '../GlobalContext/GlobalState'
 import {
-  SearchCountry,
   Form,
   Svg,
   Input,
-  Select,
+  BtnItem,
+  SelectBtn,
+  SearchCountry,
+  BtnSelectWrapper,
 } from '../Styles/FilteringForm'
 
 function FilteringForm() {
-  const { searchCountry, inputValue, selectedRegion, selectValue } =
-    useContext(GlobalContext)
+  const {
+    inputValue,
+    showBtns,
+    selectValue,
+    showButtons,
+    selectedRegion,
+    searchCountry,
+  } = useContext(GlobalContext)
+
+  console.log(showBtns)
 
   return (
     <SearchCountry>
@@ -33,14 +43,29 @@ function FilteringForm() {
           type='text'
         />
       </Form>
-      <Select value={selectValue} onChange={selectedRegion}>
-        <option value=''>Filter by regions</option>
-        <option value='Africa'>Africa</option>
-        <option value='Americas'>Americas</option>
-        <option value='Asia'>Asia</option>
-        <option value='Europe'>Europe</option>
-        <option value='Oceania'>Oceania</option>
-      </Select>
+      <SelectBtn value={selectValue} onClick={showButtons} type='button'>
+        Filter by regions
+      </SelectBtn>
+      {showBtns && (
+        <BtnSelectWrapper>
+          <BtnItem onClick={showButtons} type='button' value='Africa'>
+            Africa
+          </BtnItem>
+          <BtnItem onClick={showButtons} type='button' value='Americas'>
+            Americas
+          </BtnItem>
+          <BtnItem onClick={showButtons} type='button' value='Asia'>
+            Asia
+          </BtnItem>
+          <BtnItem onClick={showButtons} type='button' value='Europe'>
+            Europe
+          </BtnItem>
+          <BtnItem onClick={showButtons} type='button' value='Oceania'>
+            Oceania
+          </BtnItem>
+        </BtnSelectWrapper>
+      )}
+      {/* <Select value={selectValue} onChange={selectedRegion}> */}
     </SearchCountry>
   )
 }

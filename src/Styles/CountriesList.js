@@ -17,7 +17,7 @@ export const ConuntriesList = styled.div`
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
   }
-  @media (min-width: 1000px) {
+  @media (min-width: 1200px) {
     grid-template-columns: repeat(4, 1fr);
     column-gap: 3%;
   }
@@ -44,47 +44,38 @@ export const Wrapper = styled.div`
   flex-wrap: wrap;
   margin-bottom: 40px;
   background: ${({ theme }) => theme.CardAndInputs};
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
+  border-radius: 8px;
+  &:hover {
+    border-radius: 8px;
+    box-shadow: rgb(0 0 0 / 5%) 0px 0px 0.7rem 0.2rem;
+  }
   @media (min-width: 760px) {
     margin-bottom: 30px;
-  }
-  &:hover {
-    border-radius: 4px;
-    transform: translateY(-6px);
-    box-shadow: rgb(0 0 0 / 5%) 0px 0px 0.7rem 0.2rem;
-    transition: transform 0.2s ease 0s, opacity 0.2s ease 0s;
   }
 `
 export const Flag = styled.img`
   width: 100%;
-  height: 150px;
+  height: 170px;
   object-fit: cover;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
 `
-export const Card = styled.div`
-  padding: 0 20px;
+export const Card = styled.article`
+  padding: 40px 30px 40px 30px;
   width: 100%;
-  height: auto;
+  height: 130px;
   background: ${({ theme }) => theme.CardAndInputs};
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
-  padding-bottom: 20px;
+  border-radius: 0 8px;
   span {
     font-weight: 600;
-    color: black;
+    color: ${({ theme }) => theme.text};
   }
 `
 export const CountryName = styled.h2`
   font-style: normal;
   font-weight: 800;
   font-size: 16px;
-  padding-bottom: 20px;
-  padding-top: 20px;
-  // color: hsl(209, 23%, 22%);
+  margin-bottom: 20px;
   color: ${({ theme }) => theme.text};
 `
 export const Population = styled.p`
@@ -92,6 +83,7 @@ export const Population = styled.p`
   font-weight: 300;
   font-size: 14px;
   padding-bottom: 10px;
+  line-height: 1.5;
   color: ${({ theme }) => theme.text};
   span {
     color: ${({ theme }) => theme.text};
@@ -102,6 +94,7 @@ export const Region = styled.p`
   font-weight: 300;
   font-size: 14px;
   padding-bottom: 10px;
+  line-height: 1.5;
   color: ${({ theme }) => theme.text};
   span {
     color: ${({ theme }) => theme.text};
@@ -112,6 +105,7 @@ export const Capital = styled.p`
   font-weight: 300;
   font-size: 14px;
   padding-bottom: 10px;
+  line-height: 1.5;
   color: ${({ theme }) => theme.text};
   span {
     color: ${({ theme }) => theme.text};
