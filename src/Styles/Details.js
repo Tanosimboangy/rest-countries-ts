@@ -30,14 +30,13 @@ export const Flag = styled.div`
 export const Image = styled.img`
   border-radius: 8px;
   width: 100%;
-  @media (min-width: 720px) {
-  }
 `
 export const GoBack = styled.button`
   display: inline-block;
-  background-color: ${({ theme }) => theme.CardAndInputs};
   margin-bottom: 40px;
   border-radius: 4px;
+  background-color: ${({ theme }) => theme.CardAndInputs};
+  box-shadow: ${({ theme }) => theme.BoxShadow} 2px 3px 3px;
   a {
     display: block;
     padding: 6px 16px;

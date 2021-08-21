@@ -20,7 +20,10 @@ function FilteringForm() {
     searchCountry,
   } = useContext(GlobalContext)
 
-  console.log(showBtns)
+  function selectCountryByRegion(e: any) {
+    selectedRegion(e)
+    showButtons()
+  }
 
   return (
     <SearchCountry>
@@ -48,19 +51,25 @@ function FilteringForm() {
       </SelectBtn>
       {showBtns && (
         <BtnSelectWrapper>
-          <BtnItem onClick={showButtons} type='button' value='Africa'>
+          <BtnItem onClick={selectCountryByRegion} type='button' value='Africa'>
             Africa
           </BtnItem>
-          <BtnItem onClick={showButtons} type='button' value='Americas'>
+          <BtnItem
+            onClick={selectCountryByRegion}
+            type='button'
+            value='Americas'>
             Americas
           </BtnItem>
-          <BtnItem onClick={showButtons} type='button' value='Asia'>
+          <BtnItem onClick={selectCountryByRegion} type='button' value='Asia'>
             Asia
           </BtnItem>
-          <BtnItem onClick={showButtons} type='button' value='Europe'>
+          <BtnItem onClick={selectCountryByRegion} type='button' value='Europe'>
             Europe
           </BtnItem>
-          <BtnItem onClick={showButtons} type='button' value='Oceania'>
+          <BtnItem
+            onClick={selectCountryByRegion}
+            type='button'
+            value='Oceania'>
             Oceania
           </BtnItem>
         </BtnSelectWrapper>

@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const Container = styled.div`
   background: ${({ theme }) => theme.CardAndInputs};
-  box-shadow: rgb(0 0 0 / 6%) 0px 0.2rem 0.4rem;
+  box-shadow: ${({ theme }) => theme.BoxShadow} 4px 4px 8px;
   margin-bottom: 35px;
   @media (min-width: 760px) {
     margin-bottom: 50px;

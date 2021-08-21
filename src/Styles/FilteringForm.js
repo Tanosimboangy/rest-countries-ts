@@ -14,6 +14,7 @@ export const SearchCountry = styled.div`
 `
 export const Form = styled.form`
   background-color: ${({ theme }) => theme.CardAndInputs};
+  box-shadow: ${({ theme }) => theme.BoxShadow} 2px 3px 3px;
   border-radius: 4px;
   padding: 18px 18px 18px 26px;
   margin-bottom: 50px;
@@ -38,13 +39,16 @@ export const Input = styled.input`
   font-size: 14px;
   color: ${({ theme }) => theme.text};
   background-color: ${({ theme }) => theme.CardAndInputs};
+  ::placeholder {
+    color: ${({ theme }) => theme.text};
+  }
 `
 export const SelectBtn = styled.button`
   width: 100%;
   background-color: ${({ theme }) => theme.CardAndInputs};
   padding: 18px 20px;
   border-radius: 4px;
-  box-shadow: rgb(0 0 0 / 6%) 0px 0.2rem 0.9rem;
+  box-shadow: ${({ theme }) => theme.BoxShadow} 2px 3px 3px;
   font-family: Arial, Helvetica, sans-serif;
   font-style: normal;
   font-weight: 500;
@@ -62,6 +66,7 @@ export const BtnSelectWrapper = styled.div`
   border-radius: 4px;
   font-family: Arial, Helvetica, sans-serif;
   background-color: ${({ theme }) => theme.CardAndInputs};
+  box-shadow: ${({ theme }) => theme.BoxShadow};
   position: absolute;
   top: 8.2rem;
   width: 100%;
