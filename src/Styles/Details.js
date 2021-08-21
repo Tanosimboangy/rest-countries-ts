@@ -43,7 +43,6 @@ export const GoBack = styled.button`
     color: ${({ theme }) => theme.text};
     font-size: 16px;
     font-weight: 600;
-    font-family: Arial, Helvetica, sans-serif;
     span {
       font-weight: bolder;
       font-size: 20px;
@@ -57,18 +56,10 @@ export const Base = styled.div`
       font-size: 16px;
       font-weight: 600;
       font-style: normal;
-      font-family: Arial, Helvetica, sans-serif;
     }
-  }
-  div,
-  p {
-    white-space: nowrap;
-  }
-  @media (min-width: 720px) {
   }
 `
 export const Name = styled.h3`
-  font-family: Arial, Helvetica, sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 20px;

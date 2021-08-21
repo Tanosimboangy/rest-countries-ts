@@ -33,7 +33,6 @@ export const Svg = styled.svg`
 `
 export const Input = styled.input`
   width: 80%;
-  font-family: Arial, Helvetica, sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
@@ -49,7 +48,6 @@ export const SelectBtn = styled.button`
   padding: 18px 20px;
   border-radius: 4px;
   box-shadow: ${({ theme }) => theme.BoxShadow} 2px 3px 3px;
-  font-family: Arial, Helvetica, sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
@@ -64,7 +62,6 @@ export const SelectBtn = styled.button`
 export const BtnSelectWrapper = styled.div`
   padding: 20px 0;
   border-radius: 4px;
-  font-family: Arial, Helvetica, sans-serif;
   background-color: ${({ theme }) => theme.CardAndInputs};
   box-shadow: ${({ theme }) => theme.BoxShadow};
   position: absolute;
