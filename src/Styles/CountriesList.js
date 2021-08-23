@@ -21,9 +21,17 @@ export const ConuntriesList = styled.div`
   }
 `
 export const LoadingContainer = styled.div`
+  height: 10em;
   display: flex;
   align-items: center;
   justify-content: center;
+`
+export const Loading = styled.h1`
+  color: blue;
+  font-size: 45px;
+  line-height: 55px;
+  font-weight: 700;
+  font-style: normal;
 `
 export const Wrapper = styled.div`
   max-width: 280px;

@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import {
   ConuntriesList,
   LoadingContainer,
+  Loading,
   Wrapper,
   Flag,
   Card,
@@ -20,7 +21,7 @@ function Home() {
     <>
       {countriesData.length === 0 ? (
         <LoadingContainer>
-          <img src='../Img/Loading.gif' alt='loading gif' />
+          <Loading>Loading ...</Loading>
         </LoadingContainer>
       ) : (
         <ConuntriesList>
