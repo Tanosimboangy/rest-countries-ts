@@ -1,11 +1,11 @@
 import React, { useContext } from 'react'
 import Head from './Components/Head'
-import Home from './Pages/Home'
-import Details from './Pages/Details'
+import HomePage from './Pages/HomePage'
+import DetailsPage from './Pages/DetailsPage'
 import { Route, Switch } from 'react-router'
 import { ThemeProvider } from 'styled-components'
-import { GlobalStyles } from './Components/GlobalStyle'
-import { lightTheme, darkTheme } from './Components/Theme'
+import { GlobalStyles } from './Styles/GlobalStyle'
+import { lightTheme, darkTheme } from './Styles/Theme'
 import GlobalContext from './GlobalContext/GlobalState'
 
 function App() {
@@ -17,10 +17,10 @@ function App() {
       <Head title='Where is the world?' />
       <Switch>
         <Route exact path='/'>
-          <Home />
+          <HomePage />
         </Route>
         <Route path={`/:selectedCountry`}>
-          <Details />
+          <DetailsPage />
         </Route>
       </Switch>
     </ThemeProvider>
