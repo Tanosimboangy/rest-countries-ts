@@ -7,11 +7,14 @@ import {
   DetailsContainer,
   Wrapper,
   Flag,
-  Image,
   GoBack,
   Base,
   Name,
   SubContainer,
+  Frame,
+  Detail,
+  Span,
+  CountryLanguage,
   BorderCountries,
 } from '../Styles/Details'
 
@@ -30,64 +33,69 @@ function Details() {
       {country.map((item: any) => {
         return (
           <Wrapper key={item.name}>
-            <Flag>
-              <Image src={item.flag} alt='flag' />
-            </Flag>
+            <Flag src={item.flag} alt='flag' />
             <Base>
               <Name>{item.name}</Name>
               <SubContainer>
-                <div>
-                  <p>
-                    <span>Native Name: </span>
+                <Frame>
+                  <Detail>
+                    <Span>Native Name: </Span>
                     {item.nativeName}
-                  </p>
-                  <p>
-                    <span>Population: </span>
+                  </Detail>
+                  <Detail>
+                    <Span>Population: </Span>
                     {item.population}
-                  </p>
-                  <p>
-                    <span>Region: </span>
+                  </Detail>
+                  <Detail>
+                    <Span>Region: </Span>
                     {item.region}
-                  </p>
-                  <p>
-                    <span>Sub Region: </span>
+                  </Detail>
+                  <Detail>
+                    <Span>Sub Region: </Span>
                     {item.subregion}
-                  </p>
-                  <p>
-                    <span>Capital: </span>
+                  </Detail>
+                  <Detail>
+                    <Span>Capital: </Span>
                     {item.capital}
-                  </p>
-                </div>
-                <div>
-                  <p>
-                    <span>Top Level Domain: </span>
+                  </Detail>
+                </Frame>
+                <Frame>
+                  <Detail>
+                    <Span>Top Level Domain: </Span>
                     {item.topLevelDomain}
-                  </p>
+                  </Detail>
                   {item.currencies.map((currencie: any) => (
-                    <p key={currencie.code}>
-                      <span>Currencies: </span>
+                    <Detail key={currencie.code}>
+                      <Span>Currencies: </Span>
                       {currencie.code}
-                    </p>
+                    </Detail>
                   ))}
-                  <div>
-                    <span>Languages: </span>
+                  <CountryLanguage>
+                    <p>Languages:</p>
                     {item.languages.map((language: any) => (
-                      <p key={language.name}>{language.name}</p>
+                      <span key={language.name}>{language.name}</span>
                     ))}
-                  </div>
-                </div>
+                  </CountryLanguage>
+                </Frame>
               </SubContainer>
               <BorderCountries>
                 <span>Border Countries: </span>
-                {/* {item.borders.map((border: any) => {
-                                        return (
-                                            countriesData.filter((singleCountry: any) => singleCountry.alpha3Code === border).map((item: any) => {
-                                                return (
-                                                    <Link to={`/${item.name}`} key={Date.now()}>{item.name}</Link>
-                                                )
-                                            })
-                                        )
-                                    })} */}
+                <aside>
+                  {item.borders.map((border: any) => {
+                    return countriesData
+                      .filter(
+                        (singleCountry: any) =>
+                          singleCountry.alpha3Code === border
+                      )
+                      .map((item: any) => {
+                        return (
+                          <Link to={`/${item.name}`} key={Date.now()}>
+                            {item.name}
+                          </Link>
+                        )
+                      })
+                  })}
+                </aside>
               </BorderCountries>
             </Base>
           </Wrapper>

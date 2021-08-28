@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import {
   ConuntriesList,
   LoadingContainer,
-  Loading,
+  LoadingImg,
   Wrapper,
   Flag,
   Card,
@@ -22,7 +22,7 @@ function Home() {
     <>
       {countriesData.length === 0 ? (
         <LoadingContainer>
-          <img src={LoadingImage} />
+          <LoadingImg src={LoadingImage} alt='loading' />
         </LoadingContainer>
       ) : (
         <ConuntriesList>

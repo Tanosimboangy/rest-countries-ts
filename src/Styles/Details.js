@@ -4,32 +4,36 @@ export const DetailsContainer = styled.div`
   display: block;
   width: 90%;
   margin: auto;
-  @media (min-width: 720px) {
+  padding-bottom: 96px;
+  @media (min-width: 760px) {
     max-width: 88%;
     margin: auto;
   }
 `
 export const Wrapper = styled.div`
   display: grid;
+  max-width: 95%;
+  margin: auto;
+  row-gap: 40px;
   @media (min-width: 950px) {
     max-width: 100%;
     margin: auto;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 10%;
+    column-gap: 5%;
   }
 `
-export const Flag = styled.div`
-  max-width: 500px;
-  margin: auto;
-  @media (max-width: 720px) {
-    max-width: 600pxpx;
-    margin: auto;
-  }
-`
-export const Image = styled.img`
+export const Flag = styled.img`
   border-radius: 8px;
-  width: 100%;
+  width: 95%;
+  height: 45vw;
+  margin: auto;
+  @media (min-width: 950px) {
+    height: 30vw;
+    width: 100%;
+    margin: auto;
+    margin-top: 0;
+  }
 `
 export const GoBack = styled.button`
   display: inline-block;
@@ -50,29 +54,97 @@ export const GoBack = styled.button`
   }
 `
 export const Base = styled.div`
-  padding-top: 20px;
-  div {
-    span {
-      font-size: 16px;
-      font-weight: 600;
-      font-style: normal;
-    }
+  max-width: 95%;
+  margin-left: 2.5%;
+  margin-right: 2.5%;
+  @media (min-width: 950px) {
+    margin-left: 0;
+    margin-right: 0;
   }
 `
 export const Name = styled.h3`
   font-style: normal;
   font-weight: 600;
-  font-size: 20px;
-  padding-bottom: 20px;
+  font-size: 30px;
+  margin-bottom: 30px;
   color: ${({ theme }) => theme.text};
+  @media (min-width: 720px) {
+    font-size: 50px;
+  }
 `
 export const SubContainer = styled.div`
   color: ${({ theme }) => theme.text};
-  @media (min-width: 720px) {
+  @media (min-width: 760px) {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    column-gap: 4%;
+  }
+`
+export const Frame = styled.div`
+  margin-bottom: 20px;
+`
+export const Detail = styled.p`
+  font-size: 16px;
+  font-weight: 300;
+  margin-bottom: 16px;
+  white-space: nowrap;
+`
+export const Span = styled.span`
+  font-size: 20px;
+  font-weight: 400;
+`
+export const CountryLanguage = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: no-wrap;
+  justify-content: flex-start;
+  align-items: baseline;
+  p {
+    font-size: 20px;
+    font-weight: 400;
+    margin-right: 10px;
+  }
+  span {
+    font-size: 16px;
+    font-weight: 300;
   }
 `
 export const BorderCountries = styled.div`
   color: ${({ theme }) => theme.text};
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  @media (min-width: 760px) {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+  span {
+    font-size: 20px;
+    font-weight: 400;
+    white-space: nowrap;
+    margin-right: 20px;
+    margin-bottom: 20px;
+  }
+  aside {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 16px;
+    a {
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 300;
+      padding: 10px 30px;
+      white-space: nowrap;
+      color: ${({ theme }) => theme.text};
+      background-color: ${({ theme }) => theme.CardAndInputs};
+      border-radius: 4px;
+      :hover {
+        box-shadow: ${({ theme }) => theme.BoxShadow} 2px 3px 3px;
+      }
+    }
+  }
 `

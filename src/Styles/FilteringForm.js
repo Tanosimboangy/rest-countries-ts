@@ -65,14 +65,24 @@ export const BtnSelectWrapper = styled.div`
   background-color: ${({ theme }) => theme.CardAndInputs};
   box-shadow: ${({ theme }) => theme.BoxShadow};
   position: absolute;
-  top: 8.2rem;
+  top: 170px;
   width: 100%;
   display: grid;
   z-index: 1;
+  @media (min-width: 760px) {
+    display: grid;
+    width: 220px;
+    position: absolute;
+    right: 0px;
+    top: 70px;
+  }
 `
 export const BtnItem = styled.button`
   text-align: left;
   padding: 8px 25px;
   color: ${({ theme }) => theme.text};
   background-color: ${({ theme }) => theme.CardAndInputs};
+  :hover {
+    background-color: ${({ theme }) => theme.body};
+  }
 `

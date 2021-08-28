@@ -26,12 +26,9 @@ export const LoadingContainer = styled.div`
   align-items: center;
   justify-content: center;
 `
-export const Loading = styled.h1`
-  color: blue;
-  font-size: 45px;
-  line-height: 55px;
-  font-weight: 700;
-  font-style: normal;
+export const LoadingImg = styled.img`
+  width: 100%;
+  height: 100%;
 `
 export const Wrapper = styled.div`
   max-width: 280px;
