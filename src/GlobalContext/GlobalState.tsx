@@ -90,7 +90,9 @@ export const GlobalProvider: React.FC = ({ children }) => {
   }
 
   useEffect(() => {
-    gettingCountriesData()
+    setTimeout(() => {
+      gettingCountriesData()
+    }, 300)
   }, [])
 
   return (

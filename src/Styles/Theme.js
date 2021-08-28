@@ -1,5 +1,5 @@
 export const lightTheme = {
-  body: '#FAFAFA',
+  body: '#F0F0F0',
   text: '#000000',
   CardAndInputs: '#FFFFFF',
   BoxShadow: '#F0F0F0',

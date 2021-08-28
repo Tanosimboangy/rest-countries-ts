@@ -13,6 +13,7 @@ import {
   Region,
   Capital,
 } from '../Styles/CountriesList'
+import LoadingImage from '../Img/Eclipse.svg'
 
 function Home() {
   const { countriesData, inputValue, selectValue } = useContext(GlobalContext)
@@ -21,7 +22,7 @@ function Home() {
     <>
       {countriesData.length === 0 ? (
         <LoadingContainer>
-          <Loading>Loading ...</Loading>
+          <img src={LoadingImage} />
         </LoadingContainer>
       ) : (
         <ConuntriesList>
