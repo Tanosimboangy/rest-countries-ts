@@ -12,32 +12,25 @@ export const SearchCountry = styled.div`
     margin-bottom: 50px;
   }
 `
-export const Form = styled.form`
-  background-color: ${({ theme }) => theme.CardAndInputs};
-  box-shadow: ${({ theme }) => theme.BoxShadow} 2px 3px 3px;
-  border-radius: 4px;
-  padding: 18px 18px 18px 26px;
-  margin-bottom: 50px;
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  gap: 20px;
-  @media (min-width: 760px) {
-    width: 40%;
-    margin-bottom: 0;
-  }
-`
 export const Svg = styled.svg`
   width: 16px;
   height: 16px;
 `
 export const Input = styled.input`
+  background-color: ${({ theme }) => theme.CardAndInputs};
+  box-shadow: ${({ theme }) => theme.BoxShadow} 2px 3px 3px;
+  border-radius: 4px;
+  padding: 18px 18px 18px 26px;
+  margin-bottom: 50px;
+  @media (min-width: 760px) {
+    width: 40%;
+    margin-bottom: 0;
+  }
   width: 80%;
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
   color: ${({ theme }) => theme.text};
-  background-color: ${({ theme }) => theme.CardAndInputs};
   ::placeholder {
     color: ${({ theme }) => theme.text};
   }
