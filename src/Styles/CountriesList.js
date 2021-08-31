@@ -55,6 +55,7 @@ export const Card = styled.article`
   height: 130px;
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
+  margin-top: -5px;
   background: ${({ theme }) => theme.CardAndInputs};
   span {
     font-weight: 600;

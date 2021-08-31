@@ -12,25 +12,32 @@ export const SearchCountry = styled.div`
     margin-bottom: 50px;
   }
 `
+export const InputContainer = styled.div`
+  width: 100%;
+  margin-bottom: 50px;
+  position: relative;
+`
 export const Svg = styled.svg`
   width: 16px;
   height: 16px;
+  position: absolute;
+  top: 17px;
+  left: 19px;
 `
 export const Input = styled.input`
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 4px;
+  font-style: normal;
+  padding: 18px 18px 18px 50px;
+  width: -webkit-fill-available;
+  color: ${({ theme }) => theme.text};
   background-color: ${({ theme }) => theme.CardAndInputs};
   box-shadow: ${({ theme }) => theme.BoxShadow} 2px 3px 3px;
-  border-radius: 4px;
-  padding: 18px 18px 18px 26px;
-  margin-bottom: 50px;
   @media (min-width: 760px) {
     width: 40%;
     margin-bottom: 0;
   }
-  width: 80%;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 14px;
-  color: ${({ theme }) => theme.text};
   ::placeholder {
     color: ${({ theme }) => theme.text};
   }
@@ -45,10 +52,10 @@ export const SelectBtn = styled.button`
   font-weight: 500;
   font-size: 14px;
   margin-bottom: 50px;
-  text-align: left;
+  text-align: center;
   color: ${({ theme }) => theme.text};
   @media (min-width: 760px) {
-    width: 220px;
+    width: 271px;
     margin-bottom: 0;
   }
 `
