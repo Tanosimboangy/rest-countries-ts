@@ -17,9 +17,6 @@ interface Props {
 
 const Head = ({ title = 'Hello' }: Props) => {
   const { switchMode, theme } = useContext(GlobalContext)
-  console.log(Dark)
-  console.log(Light)
-  console.log(theme)
 
   return (
     <Container>

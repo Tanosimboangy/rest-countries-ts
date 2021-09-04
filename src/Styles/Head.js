@@ -47,10 +47,10 @@ export const TextModeWrapper = styled.button`
 export const IconMode = styled.img`
   margin-right: 6px;
   width: 18px;
-  height: auto;
+  width: 18px;
   @media (min-width: 760px) {
     width: 25px;
-    height: auto;
+    height: 25px;
   }
 `
 export const TextMode = styled.span`
