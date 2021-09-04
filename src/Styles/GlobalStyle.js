@@ -3,8 +3,8 @@ import { createGlobalStyle } from 'styled-components'
 export const GlobalStyles = createGlobalStyle`
     @font-face {
       font-family: 'NunitoSans';
-      src: local(NunitoSans), url(./fonts/NunitoSans-Regular.woff2) format('woff2') format('embedded-opentype'),
-      url(./fonts/NunitoSans-Regular.woff) format('woff') format('embedded-opentype');
+      src: local(NunitoSans), url(./Fonts/NunitoSans-Regular.woff2) format('woff2') format('embedded-opentype'),
+      url(./Fonts/NunitoSans-Regular.woff) format('woff') format('embedded-opentype');
     }
     body {
       background: ${({ theme }) => theme.body};

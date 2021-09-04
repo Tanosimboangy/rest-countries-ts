@@ -1,19 +1,34 @@
 import React, { useContext } from 'react'
 import GlobalContext from '../GlobalContext/GlobalState'
-import { Container, Header, Title, ModeText } from '../Styles/Head'
+import {
+  Container,
+  Header,
+  Title,
+  TextModeWrapper,
+  TextMode,
+  IconMode,
+} from '../Styles/Head'
+import Dark from '../Img/dark.svg'
+import Light from '../Img/light.svg'
 
 interface Props {
   title: string
 }
 
 const Head = ({ title = 'Hello' }: Props) => {
-  const { switchMode } = useContext(GlobalContext)
+  const { switchMode, theme } = useContext(GlobalContext)
+  console.log(Dark)
+  console.log(Light)
+  console.log(theme)
 
   return (
     <Container>
       <Header>
         <Title>{title}</Title>
-        <ModeText onClick={switchMode}>Dark Mode</ModeText>
+        <TextModeWrapper type='button' onClick={switchMode}>
+          <IconMode src={theme === 'light' ? Light : Dark} />
+          <TextMode>Dark Mode</TextMode>
+        </TextModeWrapper>
       </Header>
     </Container>
   )

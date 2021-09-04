@@ -34,16 +34,31 @@ export const Title = styled.h1`
     font-size: 22px;
   }
 `
-export const ModeText = styled.button`
+export const TextModeWrapper = styled.button`
+  background: rgb(255, 255, 255);
+  background-color: ${({ theme }) => theme.CardAndInputs};
+  margin: 0;
+  padding: 16px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+`
+export const IconMode = styled.img`
+  margin-right: 6px;
+  width: 18px;
+  height: auto;
+  @media (min-width: 760px) {
+    width: 25px;
+    height: auto;
+  }
+`
+export const TextMode = styled.span`
   font-size: 14px;
   font-weight: 600;
   font-style: normal;
-  background: rgb(255, 255, 255);
-  background-color: ${({ theme }) => theme.CardAndInputs};
-  color: ${({ theme }) => theme.text};
-  margin: 0;
-  padding: 16px;
   @media (min-width: 760px) {
     font-size: 18px;
   }
+  color: ${({ theme }) => theme.text};
 `

@@ -35,10 +35,6 @@ export const Wrapper = styled.div`
   margin-bottom: 40px;
   background: ${({ theme }) => theme.CardAndInputs};
   border-radius: 8px;
-  &:hover {
-    border-radius: 8px;
-    box-shadow: ${({ theme }) => theme.BoxShadow} 0px 6px 13px;
-  }
   @media (min-width: 760px) {
     margin-bottom: 30px;
   }
