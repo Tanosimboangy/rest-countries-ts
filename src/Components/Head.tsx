@@ -26,7 +26,7 @@ const Head = ({ title = 'Hello' }: Props) => {
       <Header>
         <Title>{title}</Title>
         <TextModeWrapper type='button' onClick={switchMode}>
-          <IconMode src={theme === 'light' ? Light : Dark} />
+          <IconMode src={theme === 'light' ? Light : Dark} alt='mode icon' />
           <TextMode>Dark Mode</TextMode>
         </TextModeWrapper>
       </Header>
