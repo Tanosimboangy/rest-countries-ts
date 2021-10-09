@@ -28,19 +28,21 @@ function Home() {
         <ConuntriesList>
           {countriesData
             .filter((country: any) =>
-              country.name.toLowerCase().includes(inputValue.toLowerCase())
+              country?.name?.common
+                .toLowerCase()
+                .includes(inputValue.toLowerCase())
             )
             .filter((region: any) =>
               selectValue ? region.region === selectValue : region
             )
             .map((country: any) => {
-              const selectedCountry = country.name
+              const selectedCountry = country.name.common
               return (
-                <Link to={`/${selectedCountry}`} key={country.name}>
+                <Link to={`/${selectedCountry}`} key={country.name.common}>
                   <Wrapper>
-                    <Flag src={country.flag} alt='country_flag' />
+                    <Flag src={country.flags.svg} alt='country_flag' />
                     <Card>
-                      <CountryName>{country.name}</CountryName>
+                      <CountryName>{country.name.common}</CountryName>
                       <Population>
                         <span>Population: </span>
                         {country.population}

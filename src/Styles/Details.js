@@ -20,19 +20,18 @@ export const Wrapper = styled.div`
     margin: auto;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    column-gap: 5%;
+    column-gap: 12%;
   }
 `
 export const Flag = styled.img`
   border-radius: 8px;
   width: 95%;
-  height: 45vw;
   margin: auto;
+  height: 100%;
   @media (min-width: 950px) {
-    height: 30vw;
     width: 100%;
     margin: auto;
-    margin-top: 0;
+    height: 100%;
   }
 `
 export const GoBack = styled.button`
@@ -77,7 +76,7 @@ export const SubContainer = styled.div`
   @media (min-width: 760px) {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    column-gap: 4%;
+    gap: 10px;
   }
 `
 export const Frame = styled.div`
@@ -96,17 +95,23 @@ export const Span = styled.span`
 export const CountryLanguage = styled.div`
   display: flex;
   flex-direction: row;
-  flex-wrap: no-wrap;
+  flex-wrap: wrap;
   justify-content: flex-start;
   align-items: baseline;
+  gap: 16px;
   p {
     font-size: 20px;
     font-weight: 400;
     margin-right: 10px;
   }
-  span {
-    font-size: 16px;
-    font-weight: 300;
+  aside {
+    span {
+      font-size: 16px;
+      font-weight: 300;
+    }
+    span:not(:last-child) {
+      margin-right: 10px;
+    }
   }
 `
 export const BorderCountries = styled.div`
@@ -117,8 +122,9 @@ export const BorderCountries = styled.div`
   @media (min-width: 760px) {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
     align-items: baseline;
+    flex-wrap: wrap;
+    gap: 16px;
   }
   span {
     font-size: 20px;

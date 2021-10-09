@@ -1,5 +1,5 @@
 import React, { useEffect, useReducer, createContext } from 'react'
-const URLALL = 'https://restcountries.eu/rest/v2/all'
+const URLALL = 'https://restcountries.com/v3.1/all'
 
 export const initialValue: State = {
   inputValue: '',
@@ -26,30 +26,38 @@ interface State {
 }
 
 interface CountriesData {
-  alpha2Code: string
-  alpha3Code: string
   altSpellings: [string, string]
   area: number
   borders: [string, string, string, string, string, string]
-  callingCodes: [string]
   capital: string
+  cca2: string
+  cca3: string
+  ccn3: string
   cioc: string
   currencies: [object[]]
   demonym: string
   flag: string
-  gini: number
+  flags: [object[]]
+  idd: [object[]]
+  independent: boolean
+  landlocked: boolean
   languages: [object[], object[], object[]]
   latlng: [number, number]
-  name: string
-  nativeName: string
-  numericCode: string
+  translations: {
+    ces: [object[]]
+    cym: [object[]]
+    est: [object[]]
+    fin: [object[]]
+    fra: [object[]]
+  }
+  name: { common: string; official: string; nativeName: [object[]] }
+  unMember: boolean
   population: number
   region: string
-  regionalBlocs: [object[]]
+  status: string
   subregion: string
-  timezones: [string]
-  topLevelDomain: [string]
-  translations: { de: string; es: string; fr: string; ja: string; it: string }
+  tld: [string]
+  maps: { googleMaps: string; openStreetMaps: string }
 }
 
 type Action =
@@ -86,6 +94,7 @@ export const GlobalProvider: React.FC = ({ children }) => {
   async function gettingCountriesData() {
     const FetchingCountries = await fetch(URLALL)
     const res = await FetchingCountries.json()
+    console.log(res)
     dispatch({ type: 'FETCHING_COUNTRIES', payload: res })
   }
 
