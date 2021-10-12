@@ -86,7 +86,6 @@ export const Detail = styled.p`
   font-size: 16px;
   font-weight: 300;
   margin-bottom: 16px;
-  white-space: nowrap;
 `
 export const Span = styled.span`
   font-size: 20px;

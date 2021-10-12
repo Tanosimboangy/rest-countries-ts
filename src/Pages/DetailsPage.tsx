@@ -49,6 +49,7 @@ function Details() {
                   <Frame>
                     <Detail>
                       <Span>Native Name: </Span>
+                      {item?.name?.official}
                     </Detail>
                     <Detail>
                       <Span>Population: </Span>
@@ -95,19 +96,26 @@ function Details() {
                 <BorderCountries>
                   <span>Border Countries: </span>
                   <aside>
-                    {item.borders.map((border: any) => {
-                      return countriesData
-                        .filter(
-                          (singleCountry: any) => singleCountry.cioc === border
-                        )
-                        .map((item: any) => {
-                          return (
-                            <Link to={`/${item.name?.common}`} key={Date.now()}>
-                              {item.name?.common}
-                            </Link>
-                          )
+                    {item.borders === []
+                      ? 'No borders'
+                      : item.borders.length > 1
+                      ? item.borders.map((border: any) => {
+                          return countriesData
+                            .filter(
+                              (singleCountry: any) =>
+                                singleCountry.cioc === border
+                            )
+                            .map((item: any) => {
+                              return (
+                                <Link
+                                  to={`/${item.name?.common}`}
+                                  key={Date.now()}>
+                                  {item.name?.common}
+                                </Link>
+                              )
+                            })
                         })
-                    })}
+                      : item.borders}
                   </aside>
                 </BorderCountries>
               </Base>
