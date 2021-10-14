@@ -94,7 +94,6 @@ export const GlobalProvider: React.FC = ({ children }) => {
   async function gettingCountriesData() {
     const FetchingCountries = await fetch(URLALL)
     const res = await FetchingCountries.json()
-    console.log(res)
     dispatch({ type: 'FETCHING_COUNTRIES', payload: res })
   }
 
