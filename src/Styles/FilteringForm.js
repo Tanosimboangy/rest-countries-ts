@@ -51,7 +51,7 @@ export const SelectBtn = styled.button`
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
-  margin-bottom: 50px;
+  margin-bottom: 80px;
   text-align: center;
   color: ${({ theme }) => theme.text};
   @media (min-width: 760px) {

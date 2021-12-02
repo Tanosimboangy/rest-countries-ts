@@ -25,6 +25,11 @@ function FilteringForm() {
     showButtons()
   }
 
+  function resetForm(e: any) {
+    selectedRegion(e)
+    // searchCountry()
+  }
+
   return (
     <SearchCountry>
       <InputContainer>
@@ -47,7 +52,7 @@ function FilteringForm() {
         />
       </InputContainer>
       <SelectBtn value={selectValue} onClick={showButtons} type='button'>
-        Filter by regions
+        {selectValue !== "" ? selectValue : "Filter by regions"}
       </SelectBtn>
       {showBtns && (
         <BtnSelectWrapper>
@@ -72,9 +77,14 @@ function FilteringForm() {
             value='Oceania'>
             Oceania
           </BtnItem>
+          <BtnItem
+            onClick={selectCountryByRegion}
+            type='button'
+            value=''>
+            All
+          </BtnItem>
         </BtnSelectWrapper>
       )}
-      {/* <Select value={selectValue} onChange={selectedRegion}> */}
     </SearchCountry>
   )
 }
