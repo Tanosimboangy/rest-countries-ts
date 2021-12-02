@@ -1,5 +1,4 @@
 import React, { useEffect, useReducer, createContext } from 'react'
-import { isTryStatement } from 'typescript'
 const URLALL = 'https://restcountries.com/v3.1/all'
 
 export const initialValue: State = {

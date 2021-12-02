@@ -25,11 +25,6 @@ function FilteringForm() {
     showButtons()
   }
 
-  function resetForm(e: any) {
-    selectedRegion(e)
-    // searchCountry()
-  }
-
   return (
     <SearchCountry>
       <InputContainer>
