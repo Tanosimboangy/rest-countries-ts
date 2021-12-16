@@ -20,6 +20,41 @@ import {
   BorderCountries,
 } from '../Styles/Details'
 
+interface CountriesData {
+  altSpellings: [string, string]
+  area: number
+  borders: [string, string, string, string, string, string]
+  capital: string
+  cca2: string
+  cca3: string
+  ccn3: string
+  cioc: string
+  currencies: [object[]]
+  demonym: string
+  flag: string
+  flags: [object[]]
+  idd: [object[]]
+  independent: boolean
+  landlocked: boolean
+  languages: [object[], object[], object[]]
+  latlng: [number, number]
+  translations: {
+    ces: [object[]]
+    cym: [object[]]
+    est: [object[]]
+    fin: [object[]]
+    fra: [object[]]
+  }
+  name: { common: string; official: string; nativeName: [object[]] }
+  unMember: boolean
+  population: number
+  region: string
+  status: string
+  subregion: string
+  tld: [string]
+  maps: { googleMaps: string; openStreetMaps: string }
+}
+
 function Details() {
   const { countriesData } = useContext(GlobalContext)
   const { selectedCountry } = useParams()
@@ -99,13 +134,15 @@ function Details() {
                     {item.borders === []
                       ? 'No borders'
                       : item.borders.length > 1
-                      ? item.borders.map((border: any) => {
+                      ? item.borders.map((border: string) => {                        
                           return countriesData
                             .filter(
-                              (singleCountry: any) =>
-                                singleCountry.cioc === border
+                              (singleCountry: any) => {
+                                
+                                return singleCountry.cioc === border
+                              }                       
                             )
-                            .map((item: any) => {
+                            .map((item: CountriesData) => {
                               return (
                                 <Link
                                   to={`/${item.name?.common}`}
