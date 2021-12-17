@@ -4,10 +4,12 @@ import {
   Svg,
   Input,
   BtnItem,
+  ResetBtn,
   SelectBtn,
   SearchCountry,
   InputContainer,
   BtnSelectWrapper,
+  SelectWrapper
 } from '../Styles/FilteringForm'
 
 function FilteringForm() {
@@ -24,6 +26,7 @@ function FilteringForm() {
     selectedRegion(e)
     showButtons()
   }
+
 
   return (
     <SearchCountry>
@@ -46,40 +49,43 @@ function FilteringForm() {
           type='text'
         />
       </InputContainer>
-      <SelectBtn value={selectValue} onClick={showButtons} type='button'>
-        {selectValue !== "" ? selectValue : "Filter by regions"}
-      </SelectBtn>
-      {showBtns && (
-        <BtnSelectWrapper>
-          <BtnItem onClick={selectCountryByRegion} type='button' value='Africa'>
-            Africa
-          </BtnItem>
-          <BtnItem
-            onClick={selectCountryByRegion}
-            type='button'
-            value='Americas'>
-            Americas
-          </BtnItem>
-          <BtnItem onClick={selectCountryByRegion} type='button' value='Asia'>
-            Asia
-          </BtnItem>
-          <BtnItem onClick={selectCountryByRegion} type='button' value='Europe'>
-            Europe
-          </BtnItem>
-          <BtnItem
-            onClick={selectCountryByRegion}
-            type='button'
-            value='Oceania'>
-            Oceania
-          </BtnItem>
-          <BtnItem
-            onClick={selectCountryByRegion}
-            type='button'
-            value=''>
-            All
-          </BtnItem>
-        </BtnSelectWrapper>
-      )}
+      <SelectWrapper>
+        <SelectBtn value={selectValue} onClick={showButtons} type='button'>
+          {selectValue !== "" ? selectValue : "Filter by regions"}
+        </SelectBtn>
+        {showBtns && (
+          <BtnSelectWrapper>
+            <BtnItem onClick={selectCountryByRegion} type='button' value='Africa'>
+              Africa
+            </BtnItem>
+            <BtnItem
+              onClick={selectCountryByRegion}
+              type='button'
+              value='Americas'>
+              Americas
+            </BtnItem>
+            <BtnItem onClick={selectCountryByRegion} type='button' value='Asia'>
+              Asia
+            </BtnItem>
+            <BtnItem onClick={selectCountryByRegion} type='button' value='Europe'>
+              Europe
+            </BtnItem>
+            <BtnItem
+              onClick={selectCountryByRegion}
+              type='button'
+              value='Oceania'>
+              Oceania
+            </BtnItem>
+            <BtnItem
+              onClick={selectCountryByRegion}
+              type='button'
+              value=''>
+              All
+            </BtnItem>
+          </BtnSelectWrapper>
+        )}
+      </SelectWrapper>
+      <ResetBtn onClick={showBtns === true ? showButtons : ""}>Reset</ResetBtn>
     </SearchCountry>
   )
 }

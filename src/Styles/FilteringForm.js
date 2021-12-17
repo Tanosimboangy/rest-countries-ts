@@ -14,7 +14,7 @@ export const SearchCountry = styled.div`
 `
 export const InputContainer = styled.div`
   width: 100%;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
   position: relative;
 `
 export const Svg = styled.svg`
@@ -42,6 +42,10 @@ export const Input = styled.input`
     color: ${({ theme }) => theme.text};
   }
 `
+export const SelectWrapper = styled.div`
+  position: relative;
+`
+
 export const SelectBtn = styled.button`
   width: 100%;
   background-color: ${({ theme }) => theme.CardAndInputs};
@@ -51,27 +55,27 @@ export const SelectBtn = styled.button`
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
-  margin-bottom: 80px;
+  margin-bottom: 20px;
   text-align: center;
   color: ${({ theme }) => theme.text};
   @media (min-width: 760px) {
-    width: 271px;
+    width: 178px;
     margin-bottom: 0;
   }
 `
+
 export const BtnSelectWrapper = styled.div`
-  padding: 20px 0;
+  padding: 16px 0;
   border-radius: 4px;
   background-color: ${({ theme }) => theme.CardAndInputs};
-  box-shadow: ${({ theme }) => theme.BoxShadow};
   position: absolute;
-  top: 170px;
+  top: 145px;
   width: 100%;
   display: grid;
   z-index: 1;
   @media (min-width: 760px) {
     display: grid;
-    width: 220px;
+    width: 178px;
     position: absolute;
     right: 0px;
     top: 70px;
@@ -84,5 +88,25 @@ export const BtnItem = styled.button`
   background-color: ${({ theme }) => theme.CardAndInputs};
   :hover {
     background-color: ${({ theme }) => theme.body};
+  }
+`
+
+export const ResetBtn = styled.button`
+  width: 100%;
+  background-color: ${({ theme }) => theme.CardAndInputs};
+  padding: 18px 20px;
+  border-radius: 4px;
+  box-shadow: ${({ theme }) => theme.BoxShadow} 2px 3px 3px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  margin-bottom: 80px;
+  text-align: center;
+  margin-left: 0;
+  color: ${({ theme }) => theme.text};
+  @media (min-width: 760px) {
+    width: 271px;
+    margin-bottom: 0;
+    margin-left: 20px;
   }
 `

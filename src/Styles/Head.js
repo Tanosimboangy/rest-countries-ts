@@ -26,7 +26,6 @@ export const Title = styled.h1`
   font-size: 14px;
   font-weight: 600;
   font-style: normal;
-  white-space: nowrap;
   padding-top: 0;
   margin: 0;
   color: ${({ theme }) => theme.text};
