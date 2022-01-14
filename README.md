@@ -10,10 +10,10 @@
 
 ## Build with
 
-- React 
-- Typescript
-- Context API
-- Styled-components
+- [React](https://reactjs.org/docs/getting-started.html)
+- [Typescript](https://www.typescriptlang.org/docs/)
+- [Context API](https://reactjs.org/docs/context.html)
+- [Styled-components](https://styled-components.com/)
 
 ## Features
 
