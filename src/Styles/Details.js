@@ -39,7 +39,7 @@ export const GoBack = styled.button`
   margin-bottom: 40px;
   border-radius: 4px;
   background-color: ${({ theme }) => theme.CardAndInputs};
-  box-shadow: ${({ theme }) => theme.BoxShadow} 2px 3px 3px;
+  box-shadow: ${({ theme }) => theme.BoxShadow} 0px 1px 3px;
   a {
     display: block;
     padding: 6px 16px;
@@ -129,7 +129,6 @@ export const BorderCountries = styled.div`
     font-size: 20px;
     font-weight: 400;
     white-space: nowrap;
-    margin-right: 20px;
     margin-bottom: 20px;
   }
   aside {
@@ -147,9 +146,7 @@ export const BorderCountries = styled.div`
       color: ${({ theme }) => theme.text};
       background-color: ${({ theme }) => theme.CardAndInputs};
       border-radius: 4px;
-      :hover {
-        box-shadow: ${({ theme }) => theme.BoxShadow} 2px 3px 3px;
-      }
+      box-shadow: ${({ theme }) => theme.BoxShadow} 0px 1px 3px;
     }
   }
 `

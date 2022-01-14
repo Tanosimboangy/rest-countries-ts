@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { useParams } from 'react-router-dom'
 import LoadingImage from '../Img/Eclipse.svg'
@@ -62,6 +62,8 @@ function Details() {
     (item) => item.name?.common === selectedCountry
   )
 
+  console.log(countriesData);  
+
   return (
     <DetailsContainer>
       <GoBack>
@@ -74,7 +76,7 @@ function Details() {
           <LoadingImg src={LoadingImage} alt='loading' />
         </LoadingContainer>
       ) : (
-        country.map((item: any) => {
+        country.map((item: any) => {          
           return (
             <Wrapper key={item.name}>
               <Flag src={item.flags.svg} alt='flag' />
@@ -108,7 +110,7 @@ function Details() {
                       <Span>Top Level Domain: </Span>
                       {item.cca2.toLowerCase()}
                     </Detail>
-                    {Object.values(item.currencies).map((currencie: any) => (
+                    {Object.values(item.currencies).map((currencie: any) => (            
                       <Detail key={currencie.name}>
                         <Span>Currencies: </Span>
                         {currencie.name}
@@ -118,8 +120,7 @@ function Details() {
                       <p>Languages:</p>
                       <aside>
                         {Object.keys(item.languages).length > 0
-                          ? Object.values(item.languages).map(
-                              (lang: any, ind: number) => (
+                          ? Object.values(item.languages).map((lang: any, ind: number) => (                    
                                 <Span key={lang[ind]}>{lang}</Span>
                               )
                             )
@@ -131,13 +132,13 @@ function Details() {
                 <BorderCountries>
                   <span>Border Countries: </span>
                   <aside>
-                    {item.borders === []
+                    {item.borders === undefined
                       ? 'No borders'
                       : item.borders.length > 1
                       ? item.borders.map((border: string) => {                        
                           return countriesData
                             .filter(
-                              (singleCountry: any) => {
+                              (singleCountry: CountriesData) => {
                                 
                                 return singleCountry.cioc === border
                               }                       
@@ -152,7 +153,16 @@ function Details() {
                               )
                             })
                         })
-                      : item.borders}
+                      : countriesData.filter((singleCountry: CountriesData) => {
+                          return singleCountry.cioc === item.borders
+                        }).map((item: CountriesData) => {
+                        return (
+                          <Link
+                            to={`/${item.name?.common}`}
+                            key={Date.now()}>
+                            {item.name?.common}
+                          </Link>
+                        )})}
                   </aside>
                 </BorderCountries>
               </Base>

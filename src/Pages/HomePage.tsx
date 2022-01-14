@@ -1,4 +1,3 @@
-import React from 'react'
 import FilteringForm from '../Components/FilteringForm'
 import CountriesList from '../Components/CountriesList'
 import { WrapContainer } from '../Styles/Home'

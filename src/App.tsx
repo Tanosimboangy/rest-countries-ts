@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import { useContext } from 'react'
 import Head from './Components/Head'
 import HomePage from './Pages/HomePage'
 import DetailsPage from './Pages/DetailsPage'

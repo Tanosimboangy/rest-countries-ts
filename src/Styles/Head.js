@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const Container = styled.div`
   background: ${({ theme }) => theme.CardAndInputs};
-  box-shadow: ${({ theme }) => theme.BoxShadow} 4px 4px 8px;
+  box-shadow: ${({ theme }) => theme.BoxShadow} 0px 1px 4px;
   margin-bottom: 35px;
   @media (min-width: 760px) {
     margin-bottom: 50px;
@@ -46,7 +46,7 @@ export const TextModeWrapper = styled.button`
 export const IconMode = styled.img`
   margin-right: 6px;
   width: 18px;
-  width: 18px;
+  height: 18px;
   @media (min-width: 760px) {
     width: 25px;
     height: 25px;

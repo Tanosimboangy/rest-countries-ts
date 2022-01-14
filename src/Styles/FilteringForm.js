@@ -27,13 +27,13 @@ export const Svg = styled.svg`
 export const Input = styled.input`
   font-size: 14px;
   font-weight: 500;
-  border-radius: 4px;
+  border-radius: 6px;
   font-style: normal;
   padding: 18px 18px 18px 50px;
   width: -webkit-fill-available;
   color: ${({ theme }) => theme.text};
   background-color: ${({ theme }) => theme.CardAndInputs};
-  box-shadow: ${({ theme }) => theme.BoxShadow} 2px 3px 3px;
+  box-shadow: ${({ theme }) => theme.BoxShadow} 0px 1px 4px;
   @media (min-width: 760px) {
     width: 40%;
     margin-bottom: 0;
@@ -50,8 +50,8 @@ export const SelectBtn = styled.button`
   width: 100%;
   background-color: ${({ theme }) => theme.CardAndInputs};
   padding: 18px 20px;
-  border-radius: 4px;
-  box-shadow: ${({ theme }) => theme.BoxShadow} 2px 3px 3px;
+  border-radius: 6px;
+  box-shadow: ${({ theme }) => theme.BoxShadow} 0px 1px 4px;
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
