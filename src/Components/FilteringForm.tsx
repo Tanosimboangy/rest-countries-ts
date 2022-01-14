@@ -4,7 +4,6 @@ import {
   Svg,
   Input,
   BtnItem,
-  ResetBtn,
   SelectBtn,
   SearchCountry,
   InputContainer,
@@ -85,7 +84,6 @@ function FilteringForm() {
           </BtnSelectWrapper>
         )}
       </SelectWrapper>
-      <ResetBtn onClick={showBtns === true ? showButtons : ""}>Reset</ResetBtn>
     </SearchCountry>
   )
 }

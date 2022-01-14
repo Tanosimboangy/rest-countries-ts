@@ -90,23 +90,3 @@ export const BtnItem = styled.button`
     background-color: ${({ theme }) => theme.body};
   }
 `
-
-export const ResetBtn = styled.button`
-  width: 100%;
-  background-color: ${({ theme }) => theme.CardAndInputs};
-  padding: 18px 20px;
-  border-radius: 4px;
-  box-shadow: ${({ theme }) => theme.BoxShadow} 2px 3px 3px;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 14px;
-  margin-bottom: 80px;
-  text-align: center;
-  margin-left: 0;
-  color: ${({ theme }) => theme.text};
-  @media (min-width: 760px) {
-    width: 271px;
-    margin-bottom: 0;
-    margin-left: 20px;
-  }
-`
