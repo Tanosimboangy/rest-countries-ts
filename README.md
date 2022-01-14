@@ -1,10 +1,12 @@
 # REST Countries
-- Demo: [rest-countries-demo](https://jacquit-rest-countries.netlify.app)
-- Github: [https://github.com/Tanosimboangy/rest-countries-ts](https://github.com/Tanosimboangy/rest-countries-ts)
+- Live app: [Demo](https://jacquit-rest-countries.netlify.app)
+- Source of the code: [Source](https://github.com/Tanosimboangy/rest-countries-ts)
 
 ## Design
+![image](./src/Img/bg-rest-countries-light.png)
 ![image](./src/Img/rest-countries-bg.png)
 ![image](./src/Img/rest-countries-dark.png)
+![image](./src/Img/detail-page-light.png)
 
 ## Build with
 
@@ -32,5 +34,5 @@ $ git clone https://github.com/Tanosimboangy/rest-countries-ts.git
 $ npm install or yarn install
 
 # Run the app
-$ parcel index.html or yarn start
+$ npm start or yarn start
 ```
