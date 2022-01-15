@@ -5,6 +5,10 @@
     <a href="https://github.com/Tanosimboangy/rest-countries-ts">
       Source
     </a>
+    <span>|</span>
+    <a href="https://jacquit-rest-countries.netlify.app">
+      Demo
+    </a>
   </h2>
 </div>
 
