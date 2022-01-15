@@ -5,7 +5,7 @@ export const lightTheme = {
   BoxShadow: '#1E1E1E',
 }
 export const darkTheme = {
-  body: '#2B3945 ',
+  body: '#0a1e2fe0',
   text: '#FFFFFF',
   CardAndInputs: '#202C37',
   BoxShadow: '#000000',

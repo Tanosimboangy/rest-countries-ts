@@ -62,8 +62,6 @@ function Details() {
     (item) => item.name?.common === selectedCountry
   )
 
-  console.log(countriesData);  
-
   return (
     <DetailsContainer>
       <GoBack>
@@ -76,17 +74,17 @@ function Details() {
           <LoadingImg src={LoadingImage} alt='loading' />
         </LoadingContainer>
       ) : (
-        country.map((item: any) => {          
+        country?.map((item: any) => {          
           return (
-            <Wrapper key={item.name}>
-              <Flag src={item.flags.svg} alt='flag' />
+            <Wrapper key={item?.name}>
+              <Flag src={item?.flags?.svg} alt='flag' />
               <Base>
-                <Name>{item.name.common}</Name>
+                <Name>{item?.name?.common}</Name>
                 <SubContainer>
                   <Frame>
                     <Detail>
                       <Span>Native Name: </Span>
-                      {item?.name?.official}
+                      {item.name.official}
                     </Detail>
                     <Detail>
                       <Span>Population: </Span>
@@ -108,19 +106,19 @@ function Details() {
                   <Frame>
                     <Detail>
                       <Span>Top Level Domain: </Span>
-                      {item.cca2.toLowerCase()}
+                      {item?.cca2.toLowerCase()}
                     </Detail>
-                    {Object.values(item.currencies).map((currencie: any) => (            
-                      <Detail key={currencie.name}>
+                    {item?.currencies && Object.values(item?.currencies).map((currencie: any) => (            
+                      <Detail key={currencie?.name}>
                         <Span>Currencies: </Span>
-                        {currencie.name}
+                        {currencie?.name}
                       </Detail>
                     ))}
                     <CountryLanguage>
                       <p>Languages:</p>
                       <aside>
-                        {Object.keys(item.languages).length > 0
-                          ? Object.values(item.languages).map((lang: any, ind: number) => (                    
+                        {Object.keys(item?.languages).length > 0
+                          ? Object.values(item?.languages).map((lang: any, ind: number) => (                    
                                 <Span key={lang[ind]}>{lang}</Span>
                               )
                             )
@@ -132,15 +130,15 @@ function Details() {
                 <BorderCountries>
                   <span>Border Countries: </span>
                   <aside>
-                    {item.borders === undefined
+                    {item?.borders === undefined
                       ? 'No borders'
-                      : item.borders.length > 1
-                      ? item.borders.map((border: string) => {                        
+                      : item?.borders.length > 1
+                      ? item?.borders.map((border: string) => {                        
                           return countriesData
                             .filter(
                               (singleCountry: CountriesData) => {
                                 
-                                return singleCountry.cioc === border
+                                return singleCountry?.cioc === border
                               }                       
                             )
                             .map((item: CountriesData) => {
@@ -153,14 +151,14 @@ function Details() {
                               )
                             })
                         })
-                      : countriesData.filter((singleCountry: CountriesData) => {
-                          return singleCountry.cioc === item.borders
+                      : countriesData?.filter((singleCountry: CountriesData) => {
+                          return singleCountry?.cioc === item?.borders
                         }).map((item: CountriesData) => {
                         return (
                           <Link
-                            to={`/${item.name?.common}`}
+                            to={`/${item?.name?.common}`}
                             key={Date.now()}>
-                            {item.name?.common}
+                            {item?.name?.common}
                           </Link>
                         )})}
                   </aside>

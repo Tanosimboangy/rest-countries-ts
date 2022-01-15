@@ -55,7 +55,7 @@ export const SelectBtn = styled.button`
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
-  margin-bottom: 20px;
+  margin-bottom: 80px;
   text-align: center;
   color: ${({ theme }) => theme.text};
   @media (min-width: 760px) {
@@ -66,10 +66,11 @@ export const SelectBtn = styled.button`
 
 export const BtnSelectWrapper = styled.div`
   padding: 16px 0;
-  border-radius: 4px;
+  border-radius: 6px;
   background-color: ${({ theme }) => theme.CardAndInputs};
+  box-shadow: ${({ theme }) => theme.BoxShadow} 0px 1px 4px;
   position: absolute;
-  top: 145px;
+  top: 75px;
   width: 100%;
   display: grid;
   z-index: 1;
