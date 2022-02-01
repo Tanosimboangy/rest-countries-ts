@@ -14,8 +14,8 @@
 
 ## **Overview**
 ![image](./src/Img/bg-rest-countries-light.png)
-![image](./src/Img/rest-countries-bg.png)
 ![image](./src/Img/rest-countries-dark.png)
+![image](./src/Img/rest-countries-bg.png)
 ![image](./src/Img/detail-page-light.png)
 
 ## **Built with**
