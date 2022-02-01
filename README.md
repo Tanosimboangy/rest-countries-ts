@@ -1,4 +1,4 @@
-# REST Countries
+# **REST Countries**
 
 <div align="center">
   <h2>
@@ -12,27 +12,27 @@
   </h2>
 </div>
 
-## Overview
+## **Overview**
 ![image](./src/Img/bg-rest-countries-light.png)
 ![image](./src/Img/rest-countries-bg.png)
 ![image](./src/Img/rest-countries-dark.png)
 ![image](./src/Img/detail-page-light.png)
 
-## Built with
+## **Built with**
 
 - [React](https://reactjs.org/docs/getting-started.html)
 - [Context API](https://reactjs.org/docs/context.html)
 - [Typescript](https://www.typescriptlang.org/docs/)
 - [Styled-components](https://styled-components.com/)
 
-## Features
+## **Features**
 
 - A home page where a list of countries is displayed.
 - Search for a specific country by name or region.
 - See the country details by clicking on a country card.
 - Switch between dark and light mode.
 
-## Getting started
+## **Getting started**
 
 To clone and run this application, you will need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with either [npm](http://npmjs.com) or [yarn](https://yarnpkg.com/)) installed on your computer. From your command line:
 
